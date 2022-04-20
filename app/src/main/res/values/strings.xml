@@ -13,5 +13,15 @@
     <string name="invalid_username">Nombre de usuario inválido</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">Login failed</string>
-    <string name = "login_image_description">Image used for bravos app logo.</string>
+    <string name="login_image_description">Image used for bravos app logo.</string>
+    <!-- Strings related to user profile-->
+    <string name="profile_image">profile_image</string>
+    <string name="nombre">Nombre</string>
+    <string name="main_name" />
+    <string name="id_profile">Identificacion</string>
+    <string name="email_profile">Email</string>
+    <string name="telephone_profile">Telefono</string>
+    <string name="user_profile">Perfil de Usuario</string>
+    <string name="userImage">userImage</string>
+    <string name="left_arrow">regresar</string>
 </resources>

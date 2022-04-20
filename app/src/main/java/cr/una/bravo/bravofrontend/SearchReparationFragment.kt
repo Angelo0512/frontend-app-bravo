@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import android.widget.Spinner
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.data.model.ReparationCard
@@ -55,25 +56,25 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
                 reparationId = "Id Reparacion: 1",
                 clientId = "Cedula: 1",
                 clientName = "Nombre Cliente: Angelo",
-                vehiclePlate = "Placa Vehiculo: 1"
+                vehiclePlate = "Placa Vehiculo: 4"
             ),
             ReparationCard(
                 reparationId = "Id Reparacion: 2",
                 clientId = "Cedula: 2",
                 clientName = "Nombre Cliente: Aramis",
-                vehiclePlate = "Placa Vehiculo: 2"
+                vehiclePlate = "Placa Vehiculo: 3"
             ),
             ReparationCard(
                 reparationId = "Id Reparacion: 3",
                 clientId = "Cedula: 3",
                 clientName = "Nombre Cliente: Arnoldo",
-                vehiclePlate = "Placa Vehiculo: 3"
+                vehiclePlate = "Placa Vehiculo: 2"
             ),
             ReparationCard(
                 reparationId = "Id Reparacion: 4",
                 clientId = "Cedula: 4",
                 clientName = "Nombre Cliente: Luis",
-                vehiclePlate = "Placa Vehiculo: 4"
+                vehiclePlate = "Placa Vehiculo: 1"
             )
         )
         adapter = ReparationCardAdapter(cardList)
@@ -91,9 +92,11 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
     }
 
     override fun onQueryTextSubmit(p0: String): Boolean {
+        val filterSpinner : String = reparationFilter.selectedItem.toString()
+
         if(p0 != ""){
             println(p0)
-            adapter.filter(p0)
+            adapter.filter(p0, filterSpinner)
         }
         return false;
     }

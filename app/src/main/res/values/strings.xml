@@ -47,4 +47,9 @@
     <string name="vehicles_button_desc">Consultar vehiculos</string>
     <string name="reparations_button_desc">Consultar reparaciones</string>
     <string name="insert_reparations_button_desc">Ingresar reparación</string>
+    <!-- Search filter reparacion -->
+    <string-array name="reparation_filter">
+        <item>Cliente</item>
+        <item>Placa</item>
+    </string-array>
 </resources>

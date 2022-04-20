@@ -2,6 +2,7 @@
 .gradle
 /local.properties
 /.idea/caches
+/.idea/misc.xml #Check for this line if any unexpected erros occurs.
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml

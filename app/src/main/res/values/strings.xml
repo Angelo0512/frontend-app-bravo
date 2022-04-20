@@ -42,4 +42,9 @@
     <string name="user_profile">Perfil de Usuario</string>
     <string name="userImage">userImage</string>
     <string name="left_arrow">regresar</string>
+    <!-- Main Fragment-related Strings-->
+    <string name="clients_button_desc">Consultar clientes</string>
+    <string name="vehicles_button_desc">Consultar vehiculos</string>
+    <string name="reparations_button_desc">Consultar reparaciones</string>
+    <string name="insert_reparations_button_desc">Ingresar reparación</string>
 </resources>

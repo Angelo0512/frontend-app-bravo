@@ -5,15 +5,16 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class VehicleAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager, lifecycle) {
+class VehicleAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+
     override fun getItemCount(): Int {
         return 2
     }
 
     override fun createFragment(position: Int): Fragment {
-        when(position) {
-            0 -> return ExistingVehicleFragment()
-            1 -> return NewVehicleFragment()
+        when (position) {
+            0 -> return NewVehicleFragment()
+            1 -> return ExistingVehicleFragment()
             else -> return ExistingVehicleFragment()
         }
     }

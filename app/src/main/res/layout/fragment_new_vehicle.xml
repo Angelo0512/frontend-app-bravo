@@ -17,9 +17,9 @@
             android:layout_marginVertical="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/field_Vehiculo_Placa"
             android:inputType="textPersonName"
-            android:minHeight="50dp"
-            android:text="@string/field_Vehiculo_Placa" />
+            android:minHeight="50dp" />
 
         <EditText
             android:id="@+id/field_VIN"
@@ -28,9 +28,9 @@
             android:layout_marginVertical="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/field_Vehiculo_VIN"
             android:inputType="textPersonName"
-            android:minHeight="50dp"
-            android:text="@string/field_Vehiculo_VIN" />
+            android:minHeight="50dp" />
 
         <EditText
             android:id="@+id/field_Marca"
@@ -39,9 +39,9 @@
             android:layout_marginVertical="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/field_Vehiculo_Marca"
             android:inputType="textPersonName"
-            android:minHeight="50dp"
-            android:text="@string/field_Vehiculo_Marca" />
+            android:minHeight="50dp" />
 
         <EditText
             android:id="@+id/field_Serie"
@@ -50,9 +50,9 @@
             android:layout_marginVertical="10dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/field_Vehiculo_Serie"
             android:inputType="textPersonName"
-            android:minHeight="50dp"
-            android:text="@string/field_Vehiculo_Serie" />
+            android:minHeight="50dp" />
 
         <Spinner
             android:id="@+id/field_Tipo"
@@ -69,7 +69,8 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
             android:contentDescription="@string/field_Vehiculo_cd_TipoMotor"
-            android:minHeight="50dp" />
+            android:minHeight="50dp"
+            android:spinnerMode="dialog" />
 
         <Button
             android:id="@+id/btn_Submit"

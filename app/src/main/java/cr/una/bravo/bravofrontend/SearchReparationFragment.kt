@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.SearchView
-import android.widget.Spinner
+import android.widget.*
 import androidx.core.view.get
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.data.model.ReparationCard
@@ -45,6 +44,8 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
         searcher = viewReparation.findViewById(R.id.reparationSearch)
         searcher.setOnQueryTextListener(this)
 
+        //Return Button
+        viewReparation.findViewById<ImageButton>(R.id.btn_SearchRep_Return).setOnClickListener { Navigation.findNavController(viewReparation).navigate(R.id.action_searchReparationFragment_to_mainFragment) }
         return viewReparation
     }
 

@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="cr.una.bravo.bravofrontend.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_insertVehicle"
+            app:destination="@id/insertVehicle" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchReparationFragment"
+            app:destination="@id/searchReparationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertVehicle"
+        android:name="cr.una.bravo.bravofrontend.InsertVehicle"
+        android:label="fragment_insert_vehicle"
+        tools:layout="@layout/fragment_insert_vehicle" >
+        <action
+            android:id="@+id/action_insertVehicle_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchReparationFragment"
+        android:name="cr.una.bravo.bravofrontend.SearchReparationFragment"
+        android:label="fragment_search_reparation"
+        tools:layout="@layout/fragment_search_reparation" >
+        <action
+            android:id="@+id/action_searchReparationFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

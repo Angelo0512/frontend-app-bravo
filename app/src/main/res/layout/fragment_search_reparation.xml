@@ -59,10 +59,9 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/reparation_filter"
             android:layout_width="223dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:spinnerMode="dropdown"/>
     </LinearLayout>
 
@@ -71,6 +70,7 @@
         android:layout_height="354dp"
         android:layout_gravity="center"
         android:scrollbars="vertical"
+        tools:listitem="@layout/reparations_list_item"
         />
 
 

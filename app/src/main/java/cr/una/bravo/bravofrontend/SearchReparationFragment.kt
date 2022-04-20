@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,7 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [SearchReparationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SearchReparationFragment : Fragment() {
+class SearchReparationFragment : Fragment(), AdapterView.OnItemSelectedListener{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,7 +37,18 @@ class SearchReparationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_reparation, container, false)
+        val view : View = inflater.inflate(R.layout.fragment_search_reparation, null)
+        val search_filter : Spinner = view.findViewById(R.id.reparation_filter)
+        search_filter.onItemSelectedListener = this
+        ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.reparation_filter,
+            android.R.layout.simple_spinner_item
+        ).also{ adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            search_filter.adapter = adapter
+        }
+        return view
     }
 
     companion object {
@@ -55,5 +69,13 @@ class SearchReparationFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 }

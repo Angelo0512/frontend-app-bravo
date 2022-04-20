@@ -42,4 +42,9 @@
     <string name="user_profile">Perfil de Usuario</string>
     <string name="userImage">userImage</string>
     <string name="left_arrow">regresar</string>
+    <!-- Search filter reparacion -->
+    <string-array name="reparation_filter">
+        <item>Cliente</item>
+        <item>Placa</item>
+    </string-array>
 </resources>

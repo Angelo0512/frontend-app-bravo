@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.data.model.ReparationCard
-import cr.una.bravo.bravofrontend.data.model.reparationCardList
 import cr.una.bravo.bravofrontend.databinding.ReparationsListItemBinding
 
 class ReparationCardAdapter (

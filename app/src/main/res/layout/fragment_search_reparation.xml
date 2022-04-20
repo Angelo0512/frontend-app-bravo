@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchReparationFragment"
+    android:id="@+id/searchReparationsFragment"
     android:orientation="vertical">
-
-    <!-- TODO: Update blank fragment layout -->
 
 
     <ImageButton
@@ -60,9 +59,8 @@
 
         <Spinner
             android:id="@+id/reparation_filter"
-            android:layout_width="223dp"
-            android:layout_height="match_parent"
-            android:spinnerMode="dropdown"/>
+            android:layout_width="142dp"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

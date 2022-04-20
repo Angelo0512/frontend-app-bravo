@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 
@@ -19,7 +18,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [SearchReparationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SearchReparationFragment : Fragment(), AdapterView.OnItemSelectedListener{
+class SearchReparationFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,16 +36,15 @@ class SearchReparationFragment : Fragment(), AdapterView.OnItemSelectedListener{
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view : View = inflater.inflate(R.layout.fragment_search_reparation, null)
-        val search_filter : Spinner = view.findViewById(R.id.reparation_filter)
-        search_filter.onItemSelectedListener = this
+        val view : View = inflater.inflate(R.layout.fragment_search_reparation, container, false)
+        val reparation_filter : Spinner = view.findViewById(R.id.reparation_filter)
         ArrayAdapter.createFromResource(
             this.requireContext(),
             R.array.reparation_filter,
             android.R.layout.simple_spinner_item
         ).also{ adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            search_filter.adapter = adapter
+            reparation_filter.adapter = adapter
         }
         return view
     }
@@ -69,13 +67,5 @@ class SearchReparationFragment : Fragment(), AdapterView.OnItemSelectedListener{
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 }

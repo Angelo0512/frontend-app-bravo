@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import cr.una.bravo.bravofrontend.data.model.ReparationCard
+import cr.una.bravo.bravofrontend.data.model.reparationCardList
+import cr.una.bravo.bravofrontend.databinding.FragmentMainBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -19,17 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class SearchReparationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var  binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,35 +27,67 @@ class SearchReparationFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view : View = inflater.inflate(R.layout.fragment_search_reparation, container, false)
-        val reparation_filter : Spinner = view.findViewById(R.id.reparation_filter)
+
+        //RecyclerView
+
+        val recyclerView : RecyclerView = view.findViewById(R.id.reparationList)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        val cardList : List<ReparationCard> = mutableListOf(
+            ReparationCard(
+                reparationId = "1",
+                clientId = "1",
+                clientName = "John Doe",
+                vehiclePlate = "1"
+            ),
+            ReparationCard(
+                reparationId = "1",
+                clientId = "1",
+                clientName = "John Doe",
+                vehiclePlate = "1"
+            ),
+            ReparationCard(
+                reparationId = "1",
+                clientId = "1",
+                clientName = "John Doe",
+                vehiclePlate = "1"
+            ),
+            ReparationCard(
+                reparationId = "1",
+                clientId = "1",
+                clientName = "John Doe",
+                vehiclePlate = "1"
+            ),
+            ReparationCard(
+                reparationId = "1",
+                clientId = "1",
+                clientName = "John Doe",
+                vehiclePlate = "1"
+            )
+        )
+        recyclerView.adapter = ReparationCardAdapter(cardList)
+
+        //Spinner
+        val reparationFilter : Spinner = view.findViewById(R.id.reparationFilter)
         ArrayAdapter.createFromResource(
             this.requireContext(),
             R.array.reparation_filter,
             android.R.layout.simple_spinner_item
         ).also{ adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            reparation_filter.adapter = adapter
+            reparationFilter.adapter = adapter
         }
         return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SearchReparationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SearchReparationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    // For the mean while
+    private fun populateReparations(){
+        val rep1 = ReparationCard(
+            reparationId = "1",
+            clientId = "1",
+            clientName = "John Doe",
+            vehiclePlate = "1"
+        )
+        reparationCardList.add(rep1)
     }
 }

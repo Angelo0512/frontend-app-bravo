@@ -2,8 +2,7 @@
     <string name="app_name">BravoFrontend</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="reparaciones">Reparaciones</string>
-    <string name="buscar_por">Buscar por:</string>
+
 
     <!-- ***Form Strings*** -->
     <!-- Vehicle -->
@@ -47,6 +46,15 @@
     <string name="vehicles_button_desc">Consultar vehiculos</string>
     <string name="reparations_button_desc">Consultar reparaciones</string>
     <string name="insert_reparations_button_desc">Ingresar reparación</string>
+
+    <!-- String related to reparations searcher-->
+    <string name="id_reparacion">Id Reparación:</string>
+    <string name="reparaciones">Reparaciones</string>
+    <string name="buscar_por">Buscar Por:</string>
+    <string name="cedula">Cedula:</string>
+    <string name="nombre_cliente">Nombre Cliente:</string>
+    <string name="placa_de_vehiculo">Placa de Vehículo:</string>
+
     <!-- Search filter reparacion -->
     <string-array name="reparation_filter">
         <item>Cliente</item>

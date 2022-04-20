@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewVehicleFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/field_Placa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="50dp"
+            android:text="@string/field_Vehiculo_Placa" />
+
+        <EditText
+            android:id="@+id/field_VIN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="50dp"
+            android:text="@string/field_Vehiculo_VIN" />
+
+        <EditText
+            android:id="@+id/field_Marca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="50dp"
+            android:text="@string/field_Vehiculo_Marca" />
+
+        <EditText
+            android:id="@+id/field_Serie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="50dp"
+            android:text="@string/field_Vehiculo_Serie" />
+
+        <Spinner
+            android:id="@+id/field_Tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:contentDescription="@string/field_Vehiculo_cd_Tipo"
+            android:minHeight="50dp"
+            android:spinnerMode="dialog" />
+
+        <Spinner
+            android:id="@+id/field_TipoMotor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:contentDescription="@string/field_Vehiculo_cd_TipoMotor"
+            android:minHeight="50dp" />
+
+        <Button
+            android:id="@+id/btn_Submit"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="10dp"
+            android:text="@string/generic_Insert" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -6,69 +6,80 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.SearchView
 import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.data.model.ReparationCard
-import cr.una.bravo.bravofrontend.data.model.reparationCardList
-import cr.una.bravo.bravofrontend.databinding.FragmentMainBinding
+
 
 /**
  * A simple [Fragment] subclass.
  * Use the [SearchReparationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SearchReparationFragment : Fragment() {
-    private lateinit var  binding: FragmentMainBinding
+class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
+    lateinit var viewReparation : View
+    lateinit var recyclerView: RecyclerView
+    lateinit var reparationFilter : Spinner
+    lateinit var searcher : SearchView
+    lateinit var adapter : ReparationCardAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view : View = inflater.inflate(R.layout.fragment_search_reparation, container, false)
+        viewReparation = inflater.inflate(R.layout.fragment_search_reparation, container, false)
 
         //RecyclerView
-
-        val recyclerView : RecyclerView = view.findViewById(R.id.reparationList)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(view.context)
-        val cardList : List<ReparationCard> = mutableListOf(
-            ReparationCard(
-                reparationId = "1",
-                clientId = "1",
-                clientName = "John Doe",
-                vehiclePlate = "1"
-            ),
-            ReparationCard(
-                reparationId = "1",
-                clientId = "1",
-                clientName = "John Doe",
-                vehiclePlate = "1"
-            ),
-            ReparationCard(
-                reparationId = "1",
-                clientId = "1",
-                clientName = "John Doe",
-                vehiclePlate = "1"
-            ),
-            ReparationCard(
-                reparationId = "1",
-                clientId = "1",
-                clientName = "John Doe",
-                vehiclePlate = "1"
-            ),
-            ReparationCard(
-                reparationId = "1",
-                clientId = "1",
-                clientName = "John Doe",
-                vehiclePlate = "1"
-            )
-        )
-        recyclerView.adapter = ReparationCardAdapter(cardList)
+        recyclerView = viewReparation.findViewById(R.id.reparationList)
+        initRecycler()
 
         //Spinner
-        val reparationFilter : Spinner = view.findViewById(R.id.reparationFilter)
+        reparationFilter = viewReparation.findViewById(R.id.reparationFilter)
+        initSpinner()
+
+        //Search View
+        searcher = viewReparation.findViewById(R.id.reparationSearch)
+        searcher.setOnQueryTextListener(this)
+
+        return viewReparation
+    }
+
+    private fun initRecycler(){
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(viewReparation.context)
+        val cardList : MutableList<ReparationCard> = mutableListOf(
+            ReparationCard(
+                reparationId = "Id Reparacion: 1",
+                clientId = "Cedula: 1",
+                clientName = "Nombre Cliente: Angelo",
+                vehiclePlate = "Placa Vehiculo: 1"
+            ),
+            ReparationCard(
+                reparationId = "Id Reparacion: 2",
+                clientId = "Cedula: 2",
+                clientName = "Nombre Cliente: Aramis",
+                vehiclePlate = "Placa Vehiculo: 2"
+            ),
+            ReparationCard(
+                reparationId = "Id Reparacion: 3",
+                clientId = "Cedula: 3",
+                clientName = "Nombre Cliente: Arnoldo",
+                vehiclePlate = "Placa Vehiculo: 3"
+            ),
+            ReparationCard(
+                reparationId = "Id Reparacion: 4",
+                clientId = "Cedula: 4",
+                clientName = "Nombre Cliente: Luis",
+                vehiclePlate = "Placa Vehiculo: 4"
+            )
+        )
+        adapter = ReparationCardAdapter(cardList)
+        recyclerView.adapter = this.adapter
+    }
+    private fun initSpinner(){
         ArrayAdapter.createFromResource(
             this.requireContext(),
             R.array.reparation_filter,
@@ -77,17 +88,20 @@ class SearchReparationFragment : Fragment() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             reparationFilter.adapter = adapter
         }
-        return view
     }
 
-    // For the mean while
-    private fun populateReparations(){
-        val rep1 = ReparationCard(
-            reparationId = "1",
-            clientId = "1",
-            clientName = "John Doe",
-            vehiclePlate = "1"
-        )
-        reparationCardList.add(rep1)
+    override fun onQueryTextSubmit(p0: String): Boolean {
+        if(p0 != ""){
+            println(p0)
+            adapter.filter(p0)
+        }
+        return false;
+    }
+
+    override fun onQueryTextChange(p0: String): Boolean {
+        if(p0 == ""){
+            initRecycler()
+        }
+        return false;
     }
 }

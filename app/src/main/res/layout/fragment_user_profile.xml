@@ -97,7 +97,7 @@
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/PersonName_profile"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="24dp"

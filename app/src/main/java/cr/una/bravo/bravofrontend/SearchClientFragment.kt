@@ -39,7 +39,7 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
         //Return Button
         viewClient.findViewById<ImageButton>(R.id.btn_SearchClient_Return).setOnClickListener {
             Navigation.findNavController(viewClient)
-                .navigate(R.id.action_mainFragment_to_searchClientFragment2)
+                .navigate(R.id.action_searchClientFragment2_to_mainFragment)
         }
 
         return viewClient

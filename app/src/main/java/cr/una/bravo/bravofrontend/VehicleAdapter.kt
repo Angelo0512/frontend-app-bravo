@@ -15,7 +15,7 @@ class VehicleAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         when (position) {
             0 -> return NewVehicleFragment()
             1 -> return ExistingVehicleFragment()
-            else -> return ExistingVehicleFragment()
+            else -> return NewVehicleFragment()
         }
     }
 }

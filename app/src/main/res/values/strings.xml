@@ -55,6 +55,17 @@
     <string name="nombre_cliente">Nombre Cliente:</string>
     <string name="placa_de_vehiculo">Placa de Vehículo:</string>
 
+
+    <!-- Detalle de reparaciones -->
+    <string name="detalle_reparaciones">Info de reparación</string>
+    <string name="id_detail">Id Reparacion:</string>
+    <string name="cedula_detail">Cedula:</string>
+    <string name="client_detail">Cliente:</string>
+    <string name="placa_detail">Placa de vehiculo:</string>
+    <string name="services_detail">Lista de servicios:</string>
+    <string name="service_id">Servicio</string>
+    <string name="observations">Observaciones:</string>
+    <string name="state">Estado:</string>
     <!-- Search filter reparacion -->
     <string-array name="reparation_filter">
         <item>Cliente</item>

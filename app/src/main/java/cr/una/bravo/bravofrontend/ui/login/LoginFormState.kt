@@ -1,7 +1,7 @@
 package cr.una.bravo.bravofrontend.ui.login
 
 /**
- * Data validation state of the login_button form.
+ * Data validation state of the login form.
  */
 data class LoginFormState(
     val usernameError: Int? = null,

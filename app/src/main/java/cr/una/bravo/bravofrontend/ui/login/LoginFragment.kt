@@ -1,5 +1,5 @@
 package cr.una.bravo.bravofrontend.ui.login
-/*
+
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.annotation.StringRes
@@ -11,6 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
+import androidx.navigation.Navigation
 import android.widget.Toast
 import cr.una.bravo.bravofrontend.databinding.FragmentLoginBinding
 
@@ -41,9 +45,9 @@ class LoginFragment : Fragment() {
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
 
-        val usernameEditText = binding.username
-        val passwordEditText = binding.password
-        val loginButton = binding.login
+        val usernameEditText = binding.loginUsername
+        val passwordEditText = binding.loginPwd
+        val loginButton = binding.loginButton
         val loadingProgressBar = binding.loading
 
         loginViewModel.loginFormState.observe(viewLifecycleOwner,
@@ -68,7 +72,10 @@ class LoginFragment : Fragment() {
                     showLoginFailed(it)
                 }
                 loginResult.success?.let {
-                    updateUiWithUser(it)
+                    //updateUiWithUser(it)
+                    view.findViewById<Button>(R.id.login_button).setOnClickListener{
+                        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment2)
+                    }
                 }
             })
 
@@ -126,4 +133,3 @@ class LoginFragment : Fragment() {
         _binding = null
     }
 }
-*/

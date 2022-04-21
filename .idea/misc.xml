@@ -3,22 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/activity_insert_vehicle.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/activity_main.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/client_list_item.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_existing_client.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_existing_vehicle.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_insert_client.xml" value="0.35260416666666666" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_insert_vehicle.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_main.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_new_client.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_new_vehicle.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_reparation_details.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_search_client.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_search_reparation.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/fragment_user_profile.xml" value="0.36666666666666664" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/reparations_list_item.xml" value="0.35733695652173914" />
-        <entry key="..\:/Coding/Projects/frontend-app-bravo/app/src/main/res/layout/service_list_item.xml" value="0.36666666666666664" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2775" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/drawable/add.xml" value="0.285" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/drawable/engine.xml" value="0.196" />
@@ -27,11 +11,15 @@
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout-land/fragment_login.xml" value="0.5" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/activity_insert_vehicle.xml" value="0.2304403591278324" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_auth.xml" value="0.2304403591278324" />
+        <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_existing_vehicle.xml" value="0.2304403591278324" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_login.xml" value="0.27291666666666664" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_main.xml" value="0.33" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_main_menu.xml" value="0.33" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_main_menu_list.xml" value="0.2304403591278324" />
+        <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_new_vehicle.xml" value="0.2304403591278324" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_search_reparation.xml" value="0.27291666666666664" />
+        <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/fragment_user_profile.xml" value="0.2304403591278324" />
         <entry key="..\:/PROJECTS/frontend-app-bravo/app/src/main/res/layout/reparations_list_item.xml" value="0.27291666666666664" />
       </map>
     </option>

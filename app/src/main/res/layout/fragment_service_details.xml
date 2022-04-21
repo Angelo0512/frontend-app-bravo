@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueGray"
+    android:orientation="vertical"
+    tools:context=".serviceDetailsFragment">
+
+    <ImageButton
+        android:id="@+id/btn_AddClient_Return"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/generic_Return"
+        android:scaleType="centerInside"
+        android:src="@drawable/left_arrow" />
+
+    <TextView
+        android:id="@+id/title_service_details"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/title_service_details"
+        android:textColor="#070707"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/service_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/service_details_id"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/state_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/service_details_state"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/observation_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/observation_details"
+            android:textSize="25sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="77dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
+            android:contentDescription="@string/edit_btn"
+            android:scaleType="centerInside"
+            android:src="@drawable/edit__1_"
+            tools:ignore="ImageContrastCheck" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/blueGray">
+
+            <TextView
+                android:id="@+id/observation_details_"
+                android:layout_width="360dp"
+                android:layout_height="360dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/observation_details" />
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/btn_edit_service_End"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="@string/generic_End" />
+    </LinearLayout>
+
+
+</LinearLayout>

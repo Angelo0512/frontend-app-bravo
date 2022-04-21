@@ -2,13 +2,14 @@
     <string name="app_name">BravoFrontend</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- ***Generic Strings*** -->
+    <string name="generic_Insert">Insertar</string>
+    <string name="generic_Return">Volver</string>
+    <string name="generic_Choose">Elija una opción</string>
 
     <!-- ***Form Strings*** -->
     <!-- Vehicle -->
     <string name="title_insert_vehicle">Ingreso del Vehículo</string>
-    <string name="cd_addVehicle_return">Regresar</string>
-    <string name="cd_addVehicle_tabs">Elija su opción</string>
     <!-- New Vehicle Form -->
     <string name="field_Vehiculo_Placa">Placa</string>
     <string name="field_Vehiculo_VIN">Número VIN</string>
@@ -18,9 +19,14 @@
     <string name="field_Vehiculo_TipoMotor">Tipo de Motor</string>
     <string name="field_Vehiculo_cd_Tipo">Tipo de Vehículo</string>
     <string name="field_Vehiculo_cd_TipoMotor">Tipo de Motor</string>
+    <!-- Client -->
+    <string name="title_insert_client">Ingreso del Cliente</string>
+    <!-- New Vehicle Form -->
+    <string name="field_Client_ID">Identificación</string>
+    <string name="field_Client_Name">Nombre</string>
+    <string name="field_Client_Email">Email</string>
+    <string name="field_Client_Phone">Teléfono</string>
 
-    <!-- ***Generic Strings*** -->
-    <string name="generic_Insert">Insertar</string>
     <!-- Strings related to login_button -->
     <string name="prompt_email">Nombre de usuario</string>
     <string name="prompt_password">Contraseña</string>

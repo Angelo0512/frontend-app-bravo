@@ -11,10 +11,12 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_insertVehicle"
-            app:destination="@id/insertVehicle" />
+            app:destination="@id/insertVehicle"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_mainFragment_to_searchReparationFragment"
-            app:destination="@id/searchReparationFragment" />
+            app:destination="@id/searchReparationFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/insertVehicle"
@@ -23,7 +25,12 @@
         tools:layout="@layout/fragment_insert_vehicle" >
         <action
             android:id="@+id/action_insertVehicle_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_insertVehicle_to_insertClientFragment"
+            app:destination="@id/insertClientFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/searchReparationFragment"
@@ -32,6 +39,17 @@
         tools:layout="@layout/fragment_search_reparation" >
         <action
             android:id="@+id/action_searchReparationFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertClientFragment"
+        android:name="cr.una.bravo.bravofrontend.InsertClientFragment"
+        android:label="fragment_insert_client"
+        tools:layout="@layout/fragment_insert_client" >
+        <action
+            android:id="@+id/action_insertClientFragment_to_insertVehicle"
+            app:destination="@id/insertVehicle"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
 </navigation>

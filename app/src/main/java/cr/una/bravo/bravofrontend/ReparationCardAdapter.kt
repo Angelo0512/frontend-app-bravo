@@ -3,6 +3,7 @@ package cr.una.bravo.bravofrontend
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.data.model.ReparationCard
 import cr.una.bravo.bravofrontend.databinding.ReparationsListItemBinding
@@ -23,6 +24,11 @@ class ReparationCardAdapter(
 
     override fun onBindViewHolder(holder: ReparationCardViewHolder, position: Int) {
         holder.bindReparationCard(reparationCards[position])
+        holder.reparationsListItemBinding.root.setOnClickListener{
+            val toast = Toast.makeText(it.context , "Click", Toast.LENGTH_LONG)
+            toast.show()
+
+        }
     }
 
     override fun getItemCount(): Int = reparationCards.size

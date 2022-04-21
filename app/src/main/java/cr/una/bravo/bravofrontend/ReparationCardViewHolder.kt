@@ -6,7 +6,7 @@ import cr.una.bravo.bravofrontend.databinding.ReparationsListItemBinding
 
 
 class ReparationCardViewHolder(
-    private val reparationsListItemBinding: ReparationsListItemBinding
+     val reparationsListItemBinding: ReparationsListItemBinding
 ) : RecyclerView.ViewHolder(reparationsListItemBinding.root) {
     fun bindReparationCard(repCard: ReparationCard) {
         reparationsListItemBinding.reparationId.text = repCard.reparationId

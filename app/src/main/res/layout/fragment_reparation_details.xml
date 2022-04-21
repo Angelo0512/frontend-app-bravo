@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mistyBlue"
     android:orientation="vertical"
     tools:context=".ReparationDetailsFragment">
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:background="@color/mistyBlue"
         android:orientation="vertical">
 
         <TextView
@@ -59,8 +61,8 @@
             android:layout_width="300dp"
             android:layout_height="399dp"
             android:layout_gravity="center"
-            android:scrollbars="vertical"
 
+            android:scrollbars="vertical"
             tools:listitem="@layout/service_list_item" />
 
     </LinearLayout>

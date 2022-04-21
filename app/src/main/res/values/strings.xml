@@ -77,4 +77,11 @@
         <item>Cliente</item>
         <item>Placa</item>
     </string-array>
+
+    <!-- String related to client searcher-->
+    <string name="busqueda_clientes">Búsqueda Clientes</string>
+    <string name="cliente_identificacion">Identificación:</string>
+    <string name="cliente_nombre">Nombre:</string>
+    <string name="cliente_email">Email:</string>
+    <string name="cliente_telefono">Teléfono:</string>
 </resources>

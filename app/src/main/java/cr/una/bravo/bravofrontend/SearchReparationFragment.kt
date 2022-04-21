@@ -13,17 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.data.model.ReparationCard
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SearchReparationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
-    lateinit var viewReparation : View
+class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
+    lateinit var viewReparation: View
     lateinit var recyclerView: RecyclerView
-    lateinit var reparationFilter : Spinner
-    lateinit var searcher : SearchView
-    lateinit var adapter : ReparationCardAdapter
+    lateinit var reparationFilter: Spinner
+    lateinit var searcher: SearchView
+    lateinit var adapter: ReparationCardAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,14 +40,18 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
         searcher.setOnQueryTextListener(this)
 
         //Return Button
-        viewReparation.findViewById<ImageButton>(R.id.btn_SearchRep_Return).setOnClickListener { Navigation.findNavController(viewReparation).navigate(R.id.action_searchReparationFragment_to_mainFragment) }
+        viewReparation.findViewById<ImageButton>(R.id.btn_SearchRep_Return).setOnClickListener {
+            Navigation.findNavController(viewReparation)
+                .navigate(R.id.action_searchReparationFragment_to_mainFragment)
+        }
+
         return viewReparation
     }
 
-    private fun initRecycler(){
+    private fun initRecycler() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(viewReparation.context)
-        val cardList : MutableList<ReparationCard> = mutableListOf(
+        val cardList: MutableList<ReparationCard> = mutableListOf(
             ReparationCard(
                 reparationId = "Id Reparacion: 1",
                 clientId = "Cedula: 1",
@@ -81,21 +80,22 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
         adapter = ReparationCardAdapter(cardList)
         recyclerView.adapter = this.adapter
     }
-    private fun initSpinner(){
+
+    private fun initSpinner() {
         ArrayAdapter.createFromResource(
             this.requireContext(),
             R.array.reparation_filter,
             android.R.layout.simple_spinner_item
-        ).also{ adapter ->
+        ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             reparationFilter.adapter = adapter
         }
     }
 
     override fun onQueryTextSubmit(p0: String): Boolean {
-        val filterSpinner : String = reparationFilter.selectedItem.toString()
+        val filterSpinner: String = reparationFilter.selectedItem.toString()
 
-        if(p0 != ""){
+        if (p0 != "") {
             println(p0)
             adapter.filter(p0, filterSpinner)
         }
@@ -103,7 +103,7 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener{
     }
 
     override fun onQueryTextChange(p0: String): Boolean {
-        if(p0 == ""){
+        if (p0 == "") {
             initRecycler()
         }
         return false;

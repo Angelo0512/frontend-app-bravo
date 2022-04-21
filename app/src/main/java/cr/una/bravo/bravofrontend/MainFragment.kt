@@ -40,6 +40,7 @@ class MainFragment : Fragment() {
 
         view.findViewById<Button>(R.id.insert_rep_button).setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_insertVehicle) }
         view.findViewById<Button>(R.id.reparations_button).setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_searchReparationFragment) }
+        view.findViewById<Button>(R.id.clients_button).setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_searchClientFragment2) }
 
         return view
     }

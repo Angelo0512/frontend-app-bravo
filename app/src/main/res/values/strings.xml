@@ -6,6 +6,7 @@
     <string name="generic_Insert">Insertar</string>
     <string name="generic_Return">Volver</string>
     <string name="generic_Choose">Elija una opción</string>
+    <string name="generic_End">Finalizar</string>
 
     <!-- ***Form Strings*** -->
     <!-- Vehicle -->
@@ -26,6 +27,11 @@
     <string name="field_Client_Name">Nombre</string>
     <string name="field_Client_Email">Email</string>
     <string name="field_Client_Phone">Teléfono</string>
+    <!-- Service -->
+    <string name="title_insert_service">Ingreso de Servicios</string>
+    <string name="field_Service_AddMore">Añadir más +</string>
+    <string name="field_Service_Tipo">Tipo de Servicio</string>
+    <string name="field_Service_Observaciones">Observaciones</string>
 
     <!-- Strings related to login_button -->
     <string name="prompt_email">Nombre de usuario</string>

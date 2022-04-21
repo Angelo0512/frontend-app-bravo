@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/mistyBlue"
     android:orientation="vertical"
-    tools:context=".InsertVehicle">
+    tools:context=".InsertServiceFragment">
 
     <ImageButton
-        android:id="@+id/btn_AddVehicle_Return"
+        android:id="@+id/imageButton"
         android:layout_width="58dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -19,30 +19,37 @@
         android:src="@drawable/left_arrow" />
 
     <TextView
-        android:id="@+id/lb_title_AddVehicle"
+        android:id="@+id/lb_title_AddService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/title_insert_vehicle"
+        android:text="@string/title_insert_service"
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/addVehicleTabs"
+    <Button
+        android:id="@+id/btn_Service_AddMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/field_Service_AddMore" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ServiceList"
+        android:layout_width="match_parent"
+        android:layout_height="421dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btn_Service_End"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/mistyBlue"
-        android:contentDescription="@string/generic_Choose" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/addVehiclePager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="20dp">
-
-
-    </androidx.viewpager2.widget.ViewPager2>
+        android:text="@string/generic_End" />
 
 </LinearLayout>

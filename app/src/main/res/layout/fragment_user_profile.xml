@@ -94,7 +94,7 @@
             android:drawablePadding="10dp"
             android:hint="@string/id_profile"
             android:inputType="textPersonName"
-            android:textColorHint="#757575" />
+            android:textColorHint="@color/midnightBlue" />
 
         <EditText
             android:id="@+id/PersonName_profile"
@@ -109,7 +109,8 @@
             android:drawableStart="@drawable/small_profile"
             android:drawablePadding="10dp"
             android:hint="@string/nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColorHint="@color/midnightBlue" />
 
         <EditText
             android:id="@+id/email_profile"
@@ -125,7 +126,7 @@
             android:drawablePadding="10dp"
             android:hint="@string/email_profile"
             android:inputType="textPersonName"
-            android:textColorHint="#757575" />
+            android:textColorHint="@color/midnightBlue" />
 
         <EditText
             android:id="@+id/telephone_profile"
@@ -141,7 +142,7 @@
             android:drawablePadding="10dp"
             android:hint="@string/telephone_profile"
             android:inputType="textPersonName"
-            android:textColorHint="#757575" />
+            android:textColorHint="@color/midnightBlue" />
 
 
     </LinearLayout>

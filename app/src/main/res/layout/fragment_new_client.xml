@@ -15,7 +15,8 @@
         android:ems="10"
         android:hint="@string/field_Client_ID"
         android:inputType="textPersonName"
-        android:minHeight="50dp" />
+        android:minHeight="50dp"
+        android:textColorHint="@color/midnightBlue" />
 
     <EditText
         android:id="@+id/field_Client_Name"
@@ -26,7 +27,8 @@
         android:ems="10"
         android:hint="@string/field_Client_Name"
         android:inputType="textPersonName"
-        android:minHeight="50dp" />
+        android:minHeight="50dp"
+        android:textColorHint="@color/midnightBlue" />
 
     <EditText
         android:id="@+id/field_Client_Email"
@@ -37,7 +39,8 @@
         android:ems="10"
         android:hint="@string/field_Client_Email"
         android:inputType="textEmailAddress"
-        android:minHeight="50dp" />
+        android:minHeight="50dp"
+        android:textColorHint="@color/midnightBlue" />
 
     <EditText
         android:id="@+id/field_Client_Phone"
@@ -48,7 +51,8 @@
         android:ems="10"
         android:hint="@string/field_Client_Phone"
         android:inputType="phone"
-        android:minHeight="50dp" />
+        android:minHeight="50dp"
+        android:textColorHint="@color/midnightBlue" />
 
     <Button
         android:id="@+id/btn_Client_SubmitNew"

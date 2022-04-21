@@ -30,31 +30,36 @@
             android:id="@+id/id_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/id_detail" />
+            android:text="@string/id_detail"
+            android:textColor="@color/midnightBlue" />
 
         <TextView
             android:id="@+id/cedula_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cedula_detail" />
+            android:text="@string/cedula_detail"
+            android:textColor="@color/midnightBlue" />
 
         <TextView
             android:id="@+id/client_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/client_detail" />
+            android:text="@string/client_detail"
+            android:textColor="@color/midnightBlue" />
 
         <TextView
             android:id="@+id/plate_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/placa_detail" />
+            android:text="@string/placa_detail"
+            android:textColor="@color/midnightBlue" />
 
         <TextView
             android:id="@+id/services_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/services_detail" />
+            android:text="@string/services_detail"
+            android:textColor="@color/midnightBlue" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/service_List"

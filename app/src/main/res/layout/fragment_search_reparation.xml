@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/white"
+        android:contentDescription="@string/generic_Return"
         android:scaleType="centerInside"
         android:src="@drawable/left_arrow" />
 
@@ -56,6 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center|start"
             android:text="@string/buscar_por"
             android:textColor="#000000"
             android:textStyle="bold" />
@@ -63,7 +65,9 @@
         <Spinner
             android:id="@+id/reparationFilter"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:contentDescription="@string/generic_Choose"
+            android:minHeight="48dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -19,7 +19,8 @@
             app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_mainFragment_to_searchClientFragment2"
-            app:destination="@id/searchClientFragment2" />
+            app:destination="@id/searchClientFragment2"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/insertVehicle"
@@ -62,7 +63,8 @@
         tools:layout="@layout/fragment_search_client" >
         <action
             android:id="@+id/action_searchClientFragment2_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -71,6 +73,7 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_mainFragment2"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>

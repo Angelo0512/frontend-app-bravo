@@ -11,16 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
+import android.widget.*
 import androidx.navigation.Navigation
-import android.widget.Toast
 import cr.una.bravo.bravofrontend.databinding.FragmentLoginBinding
 
 import cr.una.bravo.bravofrontend.R
 
-class LoginFragment : Fragment() {
+class
+LoginFragment : Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
     private var _binding: FragmentLoginBinding? = null
@@ -36,6 +34,7 @@ class LoginFragment : Fragment() {
     ): View? {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
         return binding.root
 
     }

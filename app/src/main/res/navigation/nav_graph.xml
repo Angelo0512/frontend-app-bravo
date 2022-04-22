@@ -21,6 +21,9 @@
             android:id="@+id/action_mainFragment_to_searchClientFragment2"
             app:destination="@id/searchClientFragment2"
             app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchVehicleFragment2"
+            app:destination="@id/searchVehicleFragment2" />
     </fragment>
     <fragment
         android:id="@+id/insertVehicle"
@@ -84,4 +87,13 @@
         android:name="cr.una.bravo.bravofrontend.ReparationDetailsFragment"
         android:label="fragment_reparation_details"
         tools:layout="@layout/fragment_reparation_details" />
+    <fragment
+        android:id="@+id/searchVehicleFragment2"
+        android:name="cr.una.bravo.bravofrontend.SearchVehicleFragment"
+        android:label="fragment_search_vehicle"
+        tools:layout="@layout/fragment_search_vehicle" >
+        <action
+            android:id="@+id/action_searchVehicleFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

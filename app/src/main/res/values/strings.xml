@@ -97,5 +97,10 @@
     <string name="service_details_state">Estado:</string>
     <string name="edit_btn">edit_botton</string>
     <string name="observation_details">Observaciones:</string>
+    <string name="placa">Placa:</string>
+    <string name="cliente">Cliente:</string>
+    <string name="marca">Marca:</string>
+    <string name="tipo">Tipo:</string>
+    <string name="busqueda_vehiculos">Búsqueda Vehículos</string>
 
 </resources>

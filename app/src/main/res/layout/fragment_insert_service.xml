@@ -9,7 +9,7 @@
     tools:context=".InsertServiceFragment">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_Service_Return"
         android:layout_width="58dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -46,7 +46,7 @@
         android:layout_marginBottom="20dp" />
 
     <Button
-        android:id="@+id/btn_edit_service_End"
+        android:id="@+id/btn_Service_End"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"

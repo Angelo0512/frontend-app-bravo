@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blueGray"
+    android:background="@color/mistyBlue"
     android:orientation="vertical"
     tools:context=".serviceDetailsFragment">
 
@@ -84,8 +84,9 @@
                 android:gravity="center"
                 android:text="@string/observation_details" />
         </androidx.cardview.widget.CardView>
+
         <Button
-            android:id="@+id/btn_edit_service_End"
+            android:id="@+id/btn_Service_End"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"

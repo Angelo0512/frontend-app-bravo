@@ -61,6 +61,10 @@
             android:id="@+id/action_insertClientFragment_to_insertVehicle"
             app:destination="@id/insertVehicle"
             app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_insertClientFragment_to_insertServiceFragment"
+            app:destination="@id/insertServiceFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/searchClientFragment2"
@@ -95,5 +99,19 @@
         <action
             android:id="@+id/action_searchVehicleFragment2_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertServiceFragment"
+        android:name="cr.una.bravo.bravofrontend.InsertServiceFragment"
+        android:label="fragment_insert_service"
+        tools:layout="@layout/fragment_insert_service" >
+        <action
+            android:id="@+id/action_insertServiceFragment_to_insertClientFragment"
+            app:destination="@id/insertClientFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_insertServiceFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
 </navigation>

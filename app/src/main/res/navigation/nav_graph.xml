@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="cr.una.bravo.bravofrontend.MainFragment"
+        android:name="cr.una.bravo.bravofrontend.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/insertVehicle"
-        android:name="cr.una.bravo.bravofrontend.InsertVehicle"
+        android:name="cr.una.bravo.bravofrontend.view.InsertVehicle"
         android:label="fragment_insert_vehicle"
         tools:layout="@layout/fragment_insert_vehicle" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchReparationFragment"
-        android:name="cr.una.bravo.bravofrontend.SearchReparationFragment"
+        android:name="cr.una.bravo.bravofrontend.view.SearchReparationFragment"
         android:label="fragment_search_reparation"
         tools:layout="@layout/fragment_search_reparation" >
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/insertClientFragment"
-        android:name="cr.una.bravo.bravofrontend.InsertClientFragment"
+        android:name="cr.una.bravo.bravofrontend.view.InsertClientFragment"
         android:label="fragment_insert_client"
         tools:layout="@layout/fragment_insert_client" >
         <action
@@ -68,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchClientFragment2"
-        android:name="cr.una.bravo.bravofrontend.SearchClientFragment"
+        android:name="cr.una.bravo.bravofrontend.view.SearchClientFragment"
         android:label="fragment_search_client"
         tools:layout="@layout/fragment_search_client" >
         <action
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="cr.una.bravo.bravofrontend.ui.login.LoginFragment"
+        android:name="cr.una.bravo.bravofrontend.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -88,12 +88,12 @@
     </fragment>
     <fragment
         android:id="@+id/reparationDetailsFragment"
-        android:name="cr.una.bravo.bravofrontend.ReparationDetailsFragment"
+        android:name="cr.una.bravo.bravofrontend.view.ReparationDetailsFragment"
         android:label="fragment_reparation_details"
         tools:layout="@layout/fragment_reparation_details" />
     <fragment
         android:id="@+id/searchVehicleFragment2"
-        android:name="cr.una.bravo.bravofrontend.SearchVehicleFragment"
+        android:name="cr.una.bravo.bravofrontend.view.SearchVehicleFragment"
         android:label="fragment_search_vehicle"
         tools:layout="@layout/fragment_search_vehicle" >
         <action
@@ -102,7 +102,7 @@
     </fragment>
     <fragment
         android:id="@+id/insertServiceFragment"
-        android:name="cr.una.bravo.bravofrontend.InsertServiceFragment"
+        android:name="cr.una.bravo.bravofrontend.view.InsertServiceFragment"
         android:label="fragment_insert_service"
         tools:layout="@layout/fragment_insert_service" >
         <action

@@ -18,6 +18,13 @@ data class User(
     var createDate: Date,
     var roles: List<Roles>,
 )
+data class UserBasic(
+    var id: Long,
+    var firstName: String,
+    var lastName: String,
+    var email: String,
+    var createDate: Date,
+)
 
 data class Roles(
     var id: Long,

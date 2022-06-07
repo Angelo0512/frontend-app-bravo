@@ -9,28 +9,36 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.SearchView
 import android.widget.Spinner
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.adapter.VehicleCardAdapter
+import cr.una.bravo.bravofrontend.databinding.FragmentSearchVehicleBinding
 
 import cr.una.bravo.bravofrontend.model.Vehicle
+import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
 
 class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
-    lateinit var viewVehicle: View
-    lateinit var recyclerView: RecyclerView
-    lateinit var vehicleFilter: Spinner
-    lateinit var searcher: SearchView
-    lateinit var adapter: VehicleCardAdapter
+    private lateinit var binding: FragmentSearchVehicleBinding
+    private val vehicleViewModel: VehicleViewModel by viewModels()
+    private val adapter = VehicleCardAdapter()
+
+    private lateinit var viewVehicle: View
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var vehicleFilter: Spinner
+    private lateinit var searcher: SearchView
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        viewVehicle = inflater.inflate(R.layout.fragment_search_vehicle, container, false)
+        binding = FragmentSearchVehicleBinding.inflate(inflater, container, false)
+        viewVehicle = binding.root
 
         //RecyclerView
         recyclerView = viewVehicle.findViewById(R.id.vehicleList)
@@ -54,39 +62,15 @@ class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun initRecycler() {
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(viewVehicle.context)
-        val cardList: MutableList<Vehicle> = mutableListOf(
-            Vehicle(
-                id = 1,
-                plateNumber = "1234",
-                vinNumber = "12456123",
-                brand = "Motorola",
-                motorSerial = "12345",
-                vehicleClass = "Deportivo",
-                motorType = "Electrico",
-            ),
-            Vehicle(
-                id = 1,
-                plateNumber = "1234",
-                vinNumber = "12456123",
-                brand = "Motorola",
-                motorSerial = "12345",
-                vehicleClass = "Deportivo",
-                motorType = "Electrico",
-            ),
-            Vehicle(
-                id = 1,
-                plateNumber = "1234",
-                vinNumber = "12456123",
-                brand = "Motorola",
-                motorSerial = "12345",
-                vehicleClass = "Deportivo",
-                motorType = "Electrico",
-            ),
-        )
-        adapter = VehicleCardAdapter(cardList)
-        recyclerView.adapter = this.adapter
+
+        binding.vehicleList.setHasFixedSize(true)
+        binding.vehicleList.layoutManager = LinearLayoutManager(viewVehicle.context)
+        binding.vehicleList.adapter = adapter
+
+        vehicleViewModel.vehicleList.observe(viewLifecycleOwner){
+            adapter.setVehicleList(it)
+        }
+        vehicleViewModel.findAllTask()
     }
 
     private fun initSpinner() {

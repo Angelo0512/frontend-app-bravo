@@ -10,11 +10,17 @@ import cr.una.bravo.bravofrontend.model.Vehicle
 import cr.una.bravo.bravofrontend.viewmodel.VehicleCardViewHolder
 
 
-class VehicleCardAdapter(
-    private val vehicleCards: MutableList<Vehicle>
-) : RecyclerView.Adapter<VehicleCardViewHolder>() {
+class VehicleCardAdapter: RecyclerView.Adapter<VehicleCardViewHolder>() {
 
-    private var vehicleCardsOriginal: MutableList<Vehicle> = vehicleCards
+    private var vehicleCards = mutableListOf<Vehicle>()
+    private lateinit var vehicleCardsOriginal: MutableList<Vehicle>
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setVehicleList(vehicles : List<Vehicle>){
+        this.vehicleCards = vehicles.toMutableList()
+        this.vehicleCardsOriginal = vehicleCards
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleCardViewHolder {
         val from = LayoutInflater.from(parent.context)
         val binding = VehicleListItemBinding.inflate(from, parent, false)

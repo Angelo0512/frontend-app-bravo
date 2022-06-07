@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.view
+package cr.una.bravo.bravofrontend.view.reparation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,11 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.adapter.ReparationCardAdapter
 import cr.una.bravo.bravofrontend.databinding.FragmentSearchReparationBinding
-import cr.una.bravo.bravofrontend.model.Report
-import cr.una.bravo.bravofrontend.model.UserBasic
-import cr.una.bravo.bravofrontend.model.Vehicle
 import cr.una.bravo.bravofrontend.viewmodel.ReparationViewModel
-import java.util.*
 
 
 class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {

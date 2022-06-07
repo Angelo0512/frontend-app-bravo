@@ -2,8 +2,8 @@ package cr.una.bravo.bravofrontend.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import cr.una.bravo.bravofrontend.view.ExistingVehicleFragment
-import cr.una.bravo.bravofrontend.view.NewVehicleFragment
+import cr.una.bravo.bravofrontend.view.vehicle.ExistingVehicleFragment
+import cr.una.bravo.bravofrontend.view.vehicle.NewVehicleFragment
 
 class VehicleAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 

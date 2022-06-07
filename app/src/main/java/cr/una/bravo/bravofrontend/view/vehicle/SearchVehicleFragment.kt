@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.view
+package cr.una.bravo.bravofrontend.view.vehicle
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.SearchView
 import android.widget.Spinner
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager

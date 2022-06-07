@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.view
+package cr.una.bravo.bravofrontend.view.reparation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,26 +11,25 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.adapter.ClientAdapter
+import cr.una.bravo.bravofrontend.adapter.VehicleAdapter
 
 /**
  * A simple [Fragment] subclass.
  */
-class InsertClientFragment : Fragment() {
+class InsertVehicle : Fragment() {
 
-    var tabTitle = arrayOf("Cliente Nuevo", "Cliente Existente")
-    private lateinit var clientAdapter: ClientAdapter
+    var tabTitle = arrayOf("Vehículo Nuevo", "Vehículo Existente")
+    private lateinit var vehicleAdapter: VehicleAdapter
     private lateinit var viewPager: ViewPager2
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        clientAdapter = ClientAdapter(this)
-        viewPager = view.findViewById(R.id.addClientPager)
-        viewPager.adapter = clientAdapter
-        val tabLayout = view.findViewById<TabLayout>(R.id.addClientTabs)
+        vehicleAdapter = VehicleAdapter(this)
+        viewPager = view.findViewById(R.id.addVehiclePager)
+        viewPager.adapter = vehicleAdapter
+        val tabLayout = view.findViewById<TabLayout>(R.id.addVehicleTabs)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = tabTitle[position]
         }.attach()
-
     }
 
     override fun onCreateView(
@@ -38,13 +37,12 @@ class InsertClientFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_insert_client, container, false)
+        val view = inflater.inflate(R.layout.fragment_insert_vehicle, container, false)
 
-        view.findViewById<ImageButton>(R.id.btn_AddClient_Return).setOnClickListener { Navigation.findNavController(view).navigate(
-            R.id.action_insertClientFragment_to_insertVehicle
+        view.findViewById<ImageButton>(R.id.btn_AddVehicle_Return).setOnClickListener { Navigation.findNavController(view).navigate(
+            R.id.action_insertVehicle_to_mainFragment
         ) }
 
         return view
     }
-
 }

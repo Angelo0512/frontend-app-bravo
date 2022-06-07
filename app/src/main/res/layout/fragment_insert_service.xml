@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/mistyBlue"
     android:orientation="vertical"
-    tools:context=".view.InsertServiceFragment">
+    tools:context=".view.reparation.InsertServiceFragment">
 
     <ImageButton
         android:id="@+id/btn_Service_Return"

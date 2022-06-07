@@ -2,8 +2,8 @@ package cr.una.bravo.bravofrontend.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import cr.una.bravo.bravofrontend.view.ExistingClientFragment
-import cr.una.bravo.bravofrontend.view.NewClientFragment
+import cr.una.bravo.bravofrontend.view.user.ExistingClientFragment
+import cr.una.bravo.bravofrontend.view.user.NewClientFragment
 
 class ClientAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {

@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.view
+package cr.una.bravo.bravofrontend.view.reparation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

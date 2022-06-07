@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/mistyBlue"
     android:orientation="vertical"
-    tools:context=".view.ReparationDetailsFragment">
+    tools:context=".view.reparation.ReparationDetailsFragment">
 
     <TextView
         android:id="@+id/textView6"

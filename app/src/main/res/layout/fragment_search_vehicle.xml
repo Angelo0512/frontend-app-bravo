@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/mistyBlue"
     android:orientation="vertical"
-    tools:context=".view.SearchVehicleFragment">
+    tools:context=".view.vehicle.SearchVehicleFragment">
 
     <ImageButton
         android:id="@+id/btn_SearchVeh_Return"

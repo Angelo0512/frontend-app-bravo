@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/mistyBlue"
     android:orientation="vertical"
-    tools:context=".view.SearchClientFragment">
+    tools:context=".view.user.SearchClientFragment">
 
 
     <ImageButton

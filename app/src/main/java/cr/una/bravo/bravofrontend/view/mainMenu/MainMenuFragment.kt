@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.view
+package cr.una.bravo.bravofrontend.view.mainMenu
 /*
 import android.os.Bundle
 import androidx.fragment.app.Fragment

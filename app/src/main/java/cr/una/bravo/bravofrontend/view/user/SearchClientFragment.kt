@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.view
+package cr.una.bravo.bravofrontend.view.user
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,11 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.adapter.ClientCardAdapter
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.FragmentSearchClientBinding
-import cr.una.bravo.bravofrontend.databinding.FragmentSearchReparationBinding
-import cr.una.bravo.bravofrontend.model.UserBasic
 import cr.una.bravo.bravofrontend.viewmodel.ClientViewModel
-import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
-import java.util.*
 
 class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentSearchClientBinding

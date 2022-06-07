@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/mistyBlue"
     android:orientation="vertical"
-    tools:context=".view.InsertClientFragment">
+    tools:context=".view.reparation.InsertClientFragment">
 
     <ImageButton
         android:id="@+id/btn_AddClient_Return"

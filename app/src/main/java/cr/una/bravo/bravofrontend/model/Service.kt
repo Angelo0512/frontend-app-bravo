@@ -1,7 +1,8 @@
 package cr.una.bravo.bravofrontend.model
 
 data class Service (
-    var id: Int,
+    var id: Long,
+    var name: String,
     var observations: String,
     var state: String,
 )

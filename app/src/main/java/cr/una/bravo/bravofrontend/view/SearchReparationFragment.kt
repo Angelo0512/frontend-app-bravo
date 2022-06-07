@@ -6,30 +6,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.adapter.ReparationCardAdapter
+import cr.una.bravo.bravofrontend.databinding.FragmentSearchReparationBinding
 import cr.una.bravo.bravofrontend.model.Report
 import cr.una.bravo.bravofrontend.model.UserBasic
 import cr.una.bravo.bravofrontend.model.Vehicle
+import cr.una.bravo.bravofrontend.viewmodel.ReparationViewModel
 import java.util.*
 
 
 class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
+    private lateinit var binding: FragmentSearchReparationBinding
+    private val reparationViewModel: ReparationViewModel by viewModels()
+    private val adapter = ReparationCardAdapter()
+
     lateinit var viewReparation: View
     lateinit var recyclerView: RecyclerView
     lateinit var reparationFilter: Spinner
     lateinit var searcher: SearchView
-    lateinit var adapter: ReparationCardAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        viewReparation = inflater.inflate(R.layout.fragment_search_reparation, container, false)
+        binding = FragmentSearchReparationBinding.inflate(inflater, container, false)
+        viewReparation = binding.root
 
         //RecyclerView
         recyclerView = viewReparation.findViewById(R.id.reparationList)
@@ -53,99 +60,14 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun initRecycler() {
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(viewReparation.context)
-        val cardList: MutableList<Report> = mutableListOf(
-            Report(
-                id = 1,
-                creationDate = Date(),
-                description = "Revision de motor",
-                services = null,
-                client = UserBasic(
-                    id = 1,
-                    firstName = "John",
-                    lastName = "Doe",
-                    email = "myemail@test.com",
-                    createDate = Date()
-                ),
-                vehicle = Vehicle(
-                    id = 1,
-                    plateNumber = "1234",
-                    vinNumber = "12456123",
-                    brand = "Motorola",
-                    motorSerial = "12345",
-                    vehicleClass = "Deportivo",
-                    motorType = "Electrico",
-                ),
-                technician = UserBasic(
-                    id = 2,
-                    firstName = "Jane",
-                    lastName = "Doe",
-                    email = "jane@test.com",
-                    createDate = Date()
-                ),
-            ),
-            Report(
-                id = 1,
-                creationDate = Date(),
-                description = "Revision de motor",
-                services = null,
-                client = UserBasic(
-                    id = 1,
-                    firstName = "John",
-                    lastName = "Doe",
-                    email = "myemail@test.com",
-                    createDate = Date()
-                ),
-                vehicle = Vehicle(
-                    id = 1,
-                    plateNumber = "1234",
-                    vinNumber = "12456123",
-                    brand = "Motorola",
-                    motorSerial = "12345",
-                    vehicleClass = "Deportivo",
-                    motorType = "Electrico",
-                ),
-                technician = UserBasic(
-                    id = 2,
-                    firstName = "Jane",
-                    lastName = "Doe",
-                    email = "jane@test.com",
-                    createDate = Date()
-                ),
-            ),
-            Report(
-                id = 1,
-                creationDate = Date(),
-                description = "Revision de motor",
-                services = null,
-                client = UserBasic(
-                    id = 1,
-                    firstName = "John",
-                    lastName = "Doe",
-                    email = "myemail@test.com",
-                    createDate = Date()
-                ),
-                vehicle = Vehicle(
-                    id = 1,
-                    plateNumber = "1234",
-                    vinNumber = "12456123",
-                    brand = "Motorola",
-                    motorSerial = "12345",
-                    vehicleClass = "Deportivo",
-                    motorType = "Electrico",
-                ),
-                technician = UserBasic(
-                    id = 2,
-                    firstName = "Jane",
-                    lastName = "Doe",
-                    email = "jane@test.com",
-                    createDate = Date()
-                ),
-            ),
-        )
-        adapter = ReparationCardAdapter(cardList)
-        recyclerView.adapter = this.adapter
+        binding.reparationList.setHasFixedSize(true)
+        binding.reparationList.layoutManager = LinearLayoutManager(viewReparation.context)
+        binding.reparationList.adapter = adapter
+
+        reparationViewModel.reportList.observe(viewLifecycleOwner){
+            adapter.setReparationsList(it)
+        }
+        reparationViewModel.findAllTask()
     }
 
     private fun initSpinner() {

@@ -9,13 +9,17 @@ import cr.una.bravo.bravofrontend.databinding.ReparationsListItemBinding
 import cr.una.bravo.bravofrontend.model.Report
 import cr.una.bravo.bravofrontend.viewmodel.ReparationCardViewHolder
 
-class ReparationCardAdapter(
-    private val reparationCards: MutableList<Report>,
-) :
+class ReparationCardAdapter :
     RecyclerView.Adapter<ReparationCardViewHolder>() {
+    private var reparationCards = mutableListOf<Report>()
+    private lateinit var reparationCardsOriginal: MutableList<Report>
 
-
-    private var reparationCardsOriginal: MutableList<Report> = reparationCards
+    @SuppressLint("NotifyDataSetChanged")
+    fun setReparationsList(reports : List<Report>){
+        this.reparationCards = reports.toMutableList()
+        this.reparationCardsOriginal = reparationCards
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReparationCardViewHolder {
         val from = LayoutInflater.from(parent.context)
@@ -28,7 +32,6 @@ class ReparationCardAdapter(
         holder.reparationsListItemBinding.root.setOnClickListener{
             val toast = Toast.makeText(it.context , "Click", Toast.LENGTH_LONG)
             toast.show()
-
         }
     }
 

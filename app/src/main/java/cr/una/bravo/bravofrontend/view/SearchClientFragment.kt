@@ -64,7 +64,7 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
         clientViewModel.clientList.observe(viewLifecycleOwner){
             adapter.setClientList(it)
         }
-        clientViewModel.findAllTask()
+        clientViewModel.findAllClients()
     }
 
     override fun onQueryTextSubmit(p0: String): Boolean {

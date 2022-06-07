@@ -10,19 +10,21 @@ import android.widget.ImageButton
 import android.widget.SearchView
 import android.widget.Spinner
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.adapter.VehicleCardAdapter
 import cr.una.bravo.bravofrontend.databinding.FragmentSearchVehicleBinding
-
-import cr.una.bravo.bravofrontend.model.Vehicle
+import cr.una.bravo.bravofrontend.repository.VehicleRepository
+import cr.una.bravo.bravofrontend.service.VehicleService
 import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
+import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModelFactory
 
 class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentSearchVehicleBinding
-    private val vehicleViewModel: VehicleViewModel by viewModels()
+    private lateinit var vehicleViewModel: VehicleViewModel
     private val adapter = VehicleCardAdapter()
 
     private lateinit var viewVehicle: View
@@ -39,6 +41,14 @@ class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
         // Inflate the layout for this fragment
         binding = FragmentSearchVehicleBinding.inflate(inflater, container, false)
         viewVehicle = binding.root
+
+        //Retrofit Service
+        val vehicleService = VehicleService.getInstance()
+        val vehicleRepository = VehicleRepository(vehicleService)
+
+        //ViewModelfactory
+        vehicleViewModel =
+                ViewModelProvider(this, VehicleViewModelFactory())[VehicleViewModel::class.java]
 
         //RecyclerView
         recyclerView = viewVehicle.findViewById(R.id.vehicleList)
@@ -70,7 +80,7 @@ class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
         vehicleViewModel.vehicleList.observe(viewLifecycleOwner){
             adapter.setVehicleList(it)
         }
-        vehicleViewModel.findAllTask()
+        vehicleViewModel.findAllVehicles()
     }
 
     private fun initSpinner() {

@@ -67,7 +67,7 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
         reparationViewModel.reportList.observe(viewLifecycleOwner){
             adapter.setReparationsList(it)
         }
-        reparationViewModel.findAllTask()
+        reparationViewModel.findAllReparations()
     }
 
     private fun initSpinner() {

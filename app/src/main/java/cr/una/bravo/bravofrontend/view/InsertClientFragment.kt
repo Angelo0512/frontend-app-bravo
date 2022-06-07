@@ -11,7 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.ui.ClientAdapter
+import cr.una.bravo.bravofrontend.adapter.ClientAdapter
 
 /**
  * A simple [Fragment] subclass.

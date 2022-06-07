@@ -16,14 +16,29 @@ import androidx.navigation.Navigation
 import cr.una.bravo.bravofrontend.databinding.FragmentLoginBinding
 
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.ui.login.LoggedInUserView
-import cr.una.bravo.bravofrontend.ui.login.LoginViewModel
-import cr.una.bravo.bravofrontend.ui.login.LoginViewModelFactory
+/*
+import cr.una.bravo.bravofrontend.viewmodel.LoggedInUserView
+import cr.una.bravo.bravofrontend.viewmodel.LoginViewModel
+import cr.una.bravo.bravofrontend.viewmodel.LoginViewModelFactory
+*/
+class LoginFragment : Fragment() {
 
-class
-LoginFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
 
-    private lateinit var loginViewModel: LoginViewModel
+        view.findViewById<Button>(R.id.login_button).setOnClickListener { Navigation.findNavController(view).navigate(
+            R.id.action_loginFragment_to_mainFragment2
+        ) }
+
+        return view
+    }
+
+/*
+    //private lateinit var loginViewModel: LoginViewModel
     private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
@@ -75,8 +90,9 @@ LoginFragment : Fragment() {
                 }
                 loginResult.success?.let {
                     //updateUiWithUser(it)
-                    view.findViewById<Button>(R.id.login_button).setOnClickListener{
-                        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment2)
+                    view.findViewById<Button>(R.id.login_button).setOnClickListener {
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_loginFragment_to_mainFragment2)
                     }
                 }
             })
@@ -134,4 +150,5 @@ LoginFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+*/
 }

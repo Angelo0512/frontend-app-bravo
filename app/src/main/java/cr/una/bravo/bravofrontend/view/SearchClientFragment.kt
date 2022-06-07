@@ -10,9 +10,10 @@ import android.widget.SearchView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import cr.una.bravo.bravofrontend.viewmodel.ClientCardAdapter
+import cr.una.bravo.bravofrontend.adapter.ClientCardAdapter
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.data.model.ClientCard
+import cr.una.bravo.bravofrontend.model.UserBasic
+import java.util.*
 
 class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
     lateinit var viewClient: View
@@ -48,31 +49,35 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun initRecycler() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(viewClient.context)
-        val cardList: MutableList<ClientCard> = mutableListOf(
-            ClientCard(
-                clientId = "Identificación: 1",
-                clientName = "Cedula: Angelo",
-                clientEmail = "Email: MyEmail@test.com",
-                clientTel = "11111111"
+        val cardList: MutableList<UserBasic> = mutableListOf(
+            UserBasic(
+                id = 1,
+                firstName = "John",
+                lastName = "Doe",
+                email = "myemail@test.com",
+                createDate = Date()
             ),
-            ClientCard(
-                clientId = "Identificación: 2",
-                clientName = "Cedula: Aramis",
-                clientEmail = "Email: MyEmail@test.com",
-                clientTel = "22222222"
+            UserBasic(
+                id = 1,
+                firstName = "John",
+                lastName = "Doe",
+                email = "myemail@test.com",
+                createDate = Date()
             ),
-            ClientCard(
-                clientId = "Identificación: 3",
-                clientName = "Cedula: Arnoldo",
-                clientEmail = "Email: MyEmail@test.com",
-                clientTel = "33333333"
+            UserBasic(
+                id = 1,
+                firstName = "John",
+                lastName = "Doe",
+                email = "myemail@test.com",
+                createDate = Date()
             ),
-            ClientCard(
-                clientId = "Identificación: 4",
-                clientName = "Cedula: Luis",
-                clientEmail = "Email: MyEmail@test.com",
-                clientTel = "44444444"
-            )
+            UserBasic(
+                id = 1,
+                firstName = "John",
+                lastName = "Doe",
+                email = "myemail@test.com",
+                createDate = Date()
+            ),
         )
         adapter = ClientCardAdapter(cardList)
         recyclerView.adapter = this.adapter

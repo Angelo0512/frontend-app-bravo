@@ -1,13 +1,14 @@
-package cr.una.bravo.bravofrontend.viewmodel
+package cr.una.bravo.bravofrontend.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import cr.una.bravo.bravofrontend.data.model.ServiceCard
 import cr.una.bravo.bravofrontend.databinding.ServiceListItemBinding
+import cr.una.bravo.bravofrontend.model.Service
+import cr.una.bravo.bravofrontend.viewmodel.ReparationDetailsCardViewHolder
 
 class ReparationDetailsAdapter (
-    private val serviceCard: MutableList<ServiceCard>,
+    private val serviceCard: MutableList<Service>,
 ):
     RecyclerView.Adapter<ReparationDetailsCardViewHolder>()
 {

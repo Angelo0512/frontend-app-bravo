@@ -13,9 +13,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.viewmodel.VehicleCardAdapter
+import cr.una.bravo.bravofrontend.adapter.VehicleCardAdapter
 
-import cr.una.bravo.bravofrontend.data.model.VehicleCard
+import cr.una.bravo.bravofrontend.model.Vehicle
 
 class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
     lateinit var viewVehicle: View
@@ -56,31 +56,34 @@ class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun initRecycler() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(viewVehicle.context)
-        val cardList: MutableList<VehicleCard> = mutableListOf(
-            VehicleCard(
-                vehiclePlate = "Placa: BBH-322",
-                clienteName = "Cliente: Angelo",
-                vehicleBrand = "Marca: Toyota",
-                vehicleType = "Placa: SUV"
+        val cardList: MutableList<Vehicle> = mutableListOf(
+            Vehicle(
+                id = 1,
+                plateNumber = "1234",
+                vinNumber = "12456123",
+                brand = "Motorola",
+                motorSerial = "12345",
+                vehicleClass = "Deportivo",
+                motorType = "Electrico",
             ),
-            VehicleCard(
-                vehiclePlate = "Placa: BGW-499",
-                clienteName = "Cedula: Aramis",
-                vehicleBrand = "Marca: Toyota",
-                vehicleType = "Placa: SUV"
+            Vehicle(
+                id = 1,
+                plateNumber = "1234",
+                vinNumber = "12456123",
+                brand = "Motorola",
+                motorSerial = "12345",
+                vehicleClass = "Deportivo",
+                motorType = "Electrico",
             ),
-            VehicleCard(
-                vehiclePlate = "Placa: BTZ-473",
-                clienteName = "Cedula: Arnoldo",
-                vehicleBrand = "Marca: Toyota",
-                vehicleType = "Placa: SUV"
+            Vehicle(
+                id = 1,
+                plateNumber = "1234",
+                vinNumber = "12456123",
+                brand = "Motorola",
+                motorSerial = "12345",
+                vehicleClass = "Deportivo",
+                motorType = "Electrico",
             ),
-            VehicleCard(
-                vehiclePlate = "Placa: BBB-033",
-                clienteName = "Cliente: Luis",
-                vehicleBrand = "Marca: Toyota",
-                vehicleType = "Placa: SUV"
-            )
         )
         adapter = VehicleCardAdapter(cardList)
         recyclerView.adapter = this.adapter

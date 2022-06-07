@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.viewmodel.ReparationDetailsAdapter
-import cr.una.bravo.bravofrontend.data.model.ServiceCard
+import cr.una.bravo.bravofrontend.adapter.ReparationDetailsAdapter
+import cr.una.bravo.bravofrontend.model.Service
 
 
 class ReparationDetailsFragment : Fragment() {
@@ -32,28 +32,31 @@ class ReparationDetailsFragment : Fragment() {
     private fun initRecycler(){
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(viewReparation.context)
-        val cardList : MutableList<ServiceCard> = mutableListOf(
-            ServiceCard(
-                serviceId = "Cambio de llantas",
-                observation = "No hubo problema",
+        val cardList : MutableList<Service> = mutableListOf(
+            Service(
+                id = 1,
+                name = "No hubo problema",
+                observations = null,
                 state = "Terminado",
-
             ),
-            ServiceCard(
-                serviceId = "Cambio aceite",
-                observation = "No hubo problema",
-                state = "Pendiente",
+            Service(
+                id = 1,
+                name = "No hubo problema",
+                observations = null,
+                state = "Terminado",
             ),
-            ServiceCard(
-                serviceId = "Reparacion motor",
-                observation = "No hubo problema",
-                state = "Pendiente",
+            Service(
+                id = 1,
+                name = "No hubo problema",
+                observations = null,
+                state = "Terminado",
             ),
-            ServiceCard(
-                serviceId = "Reparacion pintura",
-                observation = "No hubo problema",
-                state = "En proceso",
-            )
+            Service(
+                id = 1,
+                name = "No hubo problema",
+                observations = null,
+                state = "Terminado",
+            ),
         )
         adapter = ReparationDetailsAdapter(cardList)
         recyclerView.adapter = this.adapter

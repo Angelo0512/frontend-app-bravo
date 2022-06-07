@@ -10,8 +10,11 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
-import cr.una.bravo.bravofrontend.viewmodel.ReparationCardAdapter
-import cr.una.bravo.bravofrontend.data.model.ReparationCard
+import cr.una.bravo.bravofrontend.adapter.ReparationCardAdapter
+import cr.una.bravo.bravofrontend.model.Report
+import cr.una.bravo.bravofrontend.model.UserBasic
+import cr.una.bravo.bravofrontend.model.Vehicle
+import java.util.*
 
 
 class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
@@ -52,31 +55,94 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun initRecycler() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(viewReparation.context)
-        val cardList: MutableList<ReparationCard> = mutableListOf(
-            ReparationCard(
-                reparationId = "Id Reparacion: 1",
-                clientId = "Cedula: 1",
-                clientName = "Nombre Cliente: Angelo",
-                vehiclePlate = "Placa Vehiculo: 4"
+        val cardList: MutableList<Report> = mutableListOf(
+            Report(
+                id = 1,
+                creationDate = Date(),
+                description = "Revision de motor",
+                services = null,
+                client = UserBasic(
+                    id = 1,
+                    firstName = "John",
+                    lastName = "Doe",
+                    email = "myemail@test.com",
+                    createDate = Date()
+                ),
+                vehicle = Vehicle(
+                    id = 1,
+                    plateNumber = "1234",
+                    vinNumber = "12456123",
+                    brand = "Motorola",
+                    motorSerial = "12345",
+                    vehicleClass = "Deportivo",
+                    motorType = "Electrico",
+                ),
+                technician = UserBasic(
+                    id = 2,
+                    firstName = "Jane",
+                    lastName = "Doe",
+                    email = "jane@test.com",
+                    createDate = Date()
+                ),
             ),
-            ReparationCard(
-                reparationId = "Id Reparacion: 2",
-                clientId = "Cedula: 2",
-                clientName = "Nombre Cliente: Aramis",
-                vehiclePlate = "Placa Vehiculo: 3"
+            Report(
+                id = 1,
+                creationDate = Date(),
+                description = "Revision de motor",
+                services = null,
+                client = UserBasic(
+                    id = 1,
+                    firstName = "John",
+                    lastName = "Doe",
+                    email = "myemail@test.com",
+                    createDate = Date()
+                ),
+                vehicle = Vehicle(
+                    id = 1,
+                    plateNumber = "1234",
+                    vinNumber = "12456123",
+                    brand = "Motorola",
+                    motorSerial = "12345",
+                    vehicleClass = "Deportivo",
+                    motorType = "Electrico",
+                ),
+                technician = UserBasic(
+                    id = 2,
+                    firstName = "Jane",
+                    lastName = "Doe",
+                    email = "jane@test.com",
+                    createDate = Date()
+                ),
             ),
-            ReparationCard(
-                reparationId = "Id Reparacion: 3",
-                clientId = "Cedula: 3",
-                clientName = "Nombre Cliente: Arnoldo",
-                vehiclePlate = "Placa Vehiculo: 2"
+            Report(
+                id = 1,
+                creationDate = Date(),
+                description = "Revision de motor",
+                services = null,
+                client = UserBasic(
+                    id = 1,
+                    firstName = "John",
+                    lastName = "Doe",
+                    email = "myemail@test.com",
+                    createDate = Date()
+                ),
+                vehicle = Vehicle(
+                    id = 1,
+                    plateNumber = "1234",
+                    vinNumber = "12456123",
+                    brand = "Motorola",
+                    motorSerial = "12345",
+                    vehicleClass = "Deportivo",
+                    motorType = "Electrico",
+                ),
+                technician = UserBasic(
+                    id = 2,
+                    firstName = "Jane",
+                    lastName = "Doe",
+                    email = "jane@test.com",
+                    createDate = Date()
+                ),
             ),
-            ReparationCard(
-                reparationId = "Id Reparacion: 4",
-                clientId = "Cedula: 4",
-                clientName = "Nombre Cliente: Luis",
-                vehiclePlate = "Placa Vehiculo: 1"
-            )
         )
         adapter = ReparationCardAdapter(cardList)
         recyclerView.adapter = this.adapter

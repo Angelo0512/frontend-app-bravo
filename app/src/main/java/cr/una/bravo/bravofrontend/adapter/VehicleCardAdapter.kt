@@ -1,19 +1,20 @@
-package cr.una.bravo.bravofrontend.viewmodel
+package cr.una.bravo.bravofrontend.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import cr.una.bravo.bravofrontend.data.model.VehicleCard
 import cr.una.bravo.bravofrontend.databinding.VehicleListItemBinding
+import cr.una.bravo.bravofrontend.model.Vehicle
+import cr.una.bravo.bravofrontend.viewmodel.VehicleCardViewHolder
 
 
 class VehicleCardAdapter(
-    private val vehicleCards: MutableList<VehicleCard>
+    private val vehicleCards: MutableList<Vehicle>
 ) : RecyclerView.Adapter<VehicleCardViewHolder>() {
 
-    private var vehicleCardsOriginal: MutableList<VehicleCard> = vehicleCards
+    private var vehicleCardsOriginal: MutableList<Vehicle> = vehicleCards
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VehicleCardViewHolder {
         val from = LayoutInflater.from(parent.context)
         val binding = VehicleListItemBinding.inflate(from, parent, false)
@@ -32,21 +33,21 @@ class VehicleCardAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     fun filter(SearchText: String, spinnerFilter: String) {
-        lateinit var newList: MutableList<VehicleCard>
+        lateinit var newList: MutableList<Vehicle>
+        /*
         if (spinnerFilter == "Cliente")
             newList = vehicleCardsOriginal.filter {
                 it.clienteName.replace(
                     "Cliente: ",
                     ""
                 ) == SearchText
-            } as MutableList<VehicleCard>
+            } as MutableList<Vehicle>
+
+         */
         if (spinnerFilter == "Placa")
             newList = vehicleCardsOriginal.filter {
-                it.vehiclePlate.replace(
-                    "Placa: ",
-                    ""
-                ) == SearchText
-            } as MutableList<VehicleCard>
+                it.plateNumber == SearchText
+            } as MutableList<Vehicle>
         vehicleCards.clear()
         vehicleCards.addAll(newList)
         for (r in vehicleCards)

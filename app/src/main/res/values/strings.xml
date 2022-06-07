@@ -76,6 +76,7 @@
     <string name="placa_detail">Placa de vehiculo:</string>
     <string name="services_detail">Lista de servicios:</string>
     <string name="service_id">Servicio</string>
+    <string name="service_name">Nombre:</string>
     <string name="observations">Observaciones:</string>
     <string name="state">Estado:</string>
     <!-- Search filter reparacion -->
@@ -94,6 +95,7 @@
     <!-- String related to service_details-->
     <string name="title_service_details">Info de servicios:</string>
     <string name="service_details_id">Id de servicio:</string>
+    <string name="service_details_name">Nombre:</string>
     <string name="service_details_state">Estado:</string>
     <string name="edit_btn">edit_botton</string>
     <string name="observation_details">Observaciones:</string>

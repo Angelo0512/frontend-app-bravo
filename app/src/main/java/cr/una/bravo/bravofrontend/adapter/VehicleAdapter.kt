@@ -1,4 +1,4 @@
-package cr.una.bravo.bravofrontend.viewmodel
+package cr.una.bravo.bravofrontend.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

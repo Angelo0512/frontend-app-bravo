@@ -8,11 +8,17 @@ import cr.una.bravo.bravofrontend.databinding.ClientListItemBinding
 import cr.una.bravo.bravofrontend.model.UserBasic
 import cr.una.bravo.bravofrontend.viewmodel.ClientCardViewHolder
 
-class ClientCardAdapter(
-    private val clientCards: MutableList<UserBasic>
-) : RecyclerView.Adapter<ClientCardViewHolder>() {
+class ClientCardAdapter: RecyclerView.Adapter<ClientCardViewHolder>() {
 
-    private var clientCardsOriginal: MutableList<UserBasic> = clientCards
+    private var clientCards = mutableListOf<UserBasic>()
+    private lateinit var clientCardsOriginal: MutableList<UserBasic>
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setClientList(clients : List<UserBasic>){
+        this.clientCards = clients.toMutableList()
+        this.clientCardsOriginal = clientCards
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClientCardViewHolder {
         val from = LayoutInflater.from(parent.context)

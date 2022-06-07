@@ -7,19 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.SearchView
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.adapter.ClientCardAdapter
 import cr.una.bravo.bravofrontend.R
+import cr.una.bravo.bravofrontend.databinding.FragmentSearchClientBinding
+import cr.una.bravo.bravofrontend.databinding.FragmentSearchReparationBinding
 import cr.una.bravo.bravofrontend.model.UserBasic
+import cr.una.bravo.bravofrontend.viewmodel.ClientViewModel
+import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
 import java.util.*
 
 class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
+    private lateinit var binding: FragmentSearchClientBinding
+    private val clientViewModel: ClientViewModel by viewModels()
+    private val adapter = ClientCardAdapter()
+
     lateinit var viewClient: View
     lateinit var recyclerView: RecyclerView
     lateinit var searcher: SearchView
-    lateinit var adapter: ClientCardAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +36,8 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
     ): View? {
         // Inflate the layout for this fragment
         //View
-        viewClient = inflater.inflate(R.layout.fragment_search_client, container, false)
+        binding = FragmentSearchClientBinding.inflate(inflater, container, false)
+        viewClient = binding.root
 
         //Recycler
         recyclerView = viewClient.findViewById(R.id.clientList)
@@ -47,40 +57,14 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun initRecycler() {
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(viewClient.context)
-        val cardList: MutableList<UserBasic> = mutableListOf(
-            UserBasic(
-                id = 1,
-                firstName = "John",
-                lastName = "Doe",
-                email = "myemail@test.com",
-                createDate = Date()
-            ),
-            UserBasic(
-                id = 1,
-                firstName = "John",
-                lastName = "Doe",
-                email = "myemail@test.com",
-                createDate = Date()
-            ),
-            UserBasic(
-                id = 1,
-                firstName = "John",
-                lastName = "Doe",
-                email = "myemail@test.com",
-                createDate = Date()
-            ),
-            UserBasic(
-                id = 1,
-                firstName = "John",
-                lastName = "Doe",
-                email = "myemail@test.com",
-                createDate = Date()
-            ),
-        )
-        adapter = ClientCardAdapter(cardList)
-        recyclerView.adapter = this.adapter
+        binding.clientList.setHasFixedSize(true)
+        binding.clientList.layoutManager = LinearLayoutManager(viewClient.context)
+        binding.clientList.adapter = adapter
+
+        clientViewModel.clientList.observe(viewLifecycleOwner){
+            adapter.setClientList(it)
+        }
+        clientViewModel.findAllTask()
     }
 
     override fun onQueryTextSubmit(p0: String): Boolean {

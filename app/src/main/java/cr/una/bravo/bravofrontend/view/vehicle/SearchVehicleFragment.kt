@@ -18,6 +18,7 @@ import cr.una.bravo.bravofrontend.adapter.VehicleCardAdapter
 import cr.una.bravo.bravofrontend.databinding.FragmentSearchVehicleBinding
 import cr.una.bravo.bravofrontend.repository.VehicleRepository
 import cr.una.bravo.bravofrontend.service.VehicleService
+import cr.una.bravo.bravofrontend.viewmodel.StateVehicle
 import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
 import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModelFactory
 
@@ -76,8 +77,23 @@ class SearchVehicleFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.vehicleList.layoutManager = LinearLayoutManager(viewVehicle.context)
         binding.vehicleList.adapter = adapter
 
-        vehicleViewModel.vehicleList.observe(viewLifecycleOwner){
-            adapter.setVehicleList(it)
+        vehicleViewModel.state.observe(viewLifecycleOwner){ state ->
+            when (state) {
+                // just checking equality because Loading is a -singleton object instance-
+                StateVehicle.Loading -> {
+                    // TODO: If you need do something in loading
+                }
+                // Error and Success are both -classes- so we need to check their type with 'is'
+                is StateVehicle.Error -> {
+                    // TODO: If you need do something in error
+                }
+                is StateVehicle.SuccessList -> {
+                    state.vehicleList?.let { adapter.setVehicleList(it) }
+                }
+                else -> {
+                    // TODO: Not state loaded
+                }
+            }
         }
         vehicleViewModel.findAllVehicles()
     }

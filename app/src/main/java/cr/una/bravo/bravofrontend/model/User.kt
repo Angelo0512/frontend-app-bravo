@@ -59,7 +59,7 @@ data class LoginResult(
 )
 
 data class LoginRequest(
-    var username: String,
+    var email: String,
     var password: String,
 )
 

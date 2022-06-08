@@ -17,8 +17,8 @@ android {
 
         buildConfigField "String", "DATE_FORMAT", "\"dd/MM/yyyy\""
         buildConfigField "String", "API_KEY", "\"my_api_key\""
-        buildConfigField "String", "BASE_URL", "\"https://629f8590461f8173e4eb7fda.mockapi.io/\""
-        //buildConfigField "String", "BASE_URL", "\"https://bravo-backend-mov-2022.herokuapp.com\""
+        //buildConfigField "String", "BASE_URL", "\"https://629f8590461f8173e4eb7fda.mockapi.io/\""
+        buildConfigField "String", "BASE_URL", "\"https://bravo-backend-mov-2022.herokuapp.com/\""
     }
 
     buildTypes {

@@ -77,16 +77,6 @@
             app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="cr.una.bravo.bravofrontend.view.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_mainFragment2"
-            app:destination="@id/mainFragment"
-            app:enterAnim="@android:anim/fade_in" />
-    </fragment>
-    <fragment
         android:id="@+id/reparationDetailsFragment"
         android:name="cr.una.bravo.bravofrontend.view.reparation.ReparationDetailsFragment"
         android:label="fragment_reparation_details"

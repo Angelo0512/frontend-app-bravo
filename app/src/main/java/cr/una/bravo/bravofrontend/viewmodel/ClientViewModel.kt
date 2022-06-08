@@ -1,22 +1,90 @@
 package cr.una.bravo.bravofrontend.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import cr.una.bravo.bravofrontend.model.ClientProvider
+import cr.una.bravo.bravofrontend.model.User
 import cr.una.bravo.bravofrontend.model.UserBasic
+import cr.una.bravo.bravofrontend.repository.UserRepository
+import kotlinx.coroutines.*
 
-class ClientViewModel : ViewModel() {
-    val client = MutableLiveData<UserBasic>()
-    val clientList = MutableLiveData<List<UserBasic>>()
+sealed class StateClient {
+    object Loading : StateClient()
+    data class SuccessUser(val user: User?) : StateClient()
+    data class SuccessUserBasic(val user: UserBasic?) : StateClient()
+    data class SuccessDelete(val deleted: Boolean?) : StateClient()
+    data class SuccessList(val userList: List<UserBasic>?) : StateClient()
+    data class Error(val message: String) : StateClient()
+}
 
-    fun getClient() {
-        val position = (0..3).random()
-        val _client = ClientProvider.findClientById(position)
-        client.postValue(_client)
+class ClientViewModel constructor(
+    private val userRepository: UserRepository,
+): ViewModel() {
+    private val _state = MutableLiveData<StateClient>()
+    val state: LiveData<StateClient> get() = _state
+
+    private var job: Job? = null
+    private val errorMessage = MutableLiveData<String>()
+    private val loading = MutableLiveData<Boolean>()
+
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        onError("Exception handled: ${throwable.localizedMessage}")
     }
 
-    fun findAllClients() {
-        val _clientList = ClientProvider.findAllClients()
-        clientList.postValue(_clientList)
+    fun getUser(id: Long) {
+        _state.value = StateClient.Loading
+        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+            loading.postValue(true)
+            val response = userRepository.getUserById(id)
+            withContext(Dispatchers.Main){
+                _state.postValue(
+                    if(response.isSuccessful) StateClient.SuccessUserBasic(response.body())
+                    else StateClient.Error("Error: ${response.message()}")
+                )
+            }
+        }
+    }
+
+    fun findAllUsers() {
+        _state.value = StateClient.Loading
+        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+            loading.postValue(true)
+            val response = userRepository.getAllUsers()
+            withContext(Dispatchers.Main){
+                _state.postValue(
+                    if(response.isSuccessful) StateClient.SuccessList(response.body())
+                    else StateClient.Error("Error: ${response.message()}")
+                )
+            }
+        }
+    }
+
+    fun createUser(userRequest : User){
+        _state.value = StateClient.Loading
+        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+            loading.postValue(true)
+            val response = userRepository.createUser(userRequest)
+            withContext(Dispatchers.Main) {
+                _state.postValue(
+                    // when you get a response, the state is now either Success or Error
+                    (if (response.isSuccessful) {
+                        StateClient.SuccessUser(response.body() as User)
+                    } else {
+                        StateClient.Error("Error : ${response.message()} ")
+                        onError("Error : ${response.message()}")
+                    }) as StateClient?
+                )
+            }
+        }
+    }
+
+    private fun onError(message: String) {
+        errorMessage.value = message
+        loading.value = false
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        job?.cancel()
     }
 }

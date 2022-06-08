@@ -8,17 +8,23 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.SearchView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.adapter.ClientCardAdapter
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.FragmentSearchClientBinding
+import cr.una.bravo.bravofrontend.repository.UserRepository
+import cr.una.bravo.bravofrontend.service.UserService
 import cr.una.bravo.bravofrontend.viewmodel.ClientViewModel
+import cr.una.bravo.bravofrontend.viewmodel.ClientViewModelFactory
+import cr.una.bravo.bravofrontend.viewmodel.StateClient
+import cr.una.bravo.bravofrontend.viewmodel.StateVehicle
 
 class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentSearchClientBinding
-    private val clientViewModel: ClientViewModel by viewModels()
+    private lateinit var clientViewModel: ClientViewModel
     private val adapter = ClientCardAdapter()
 
     lateinit var viewClient: View
@@ -35,6 +41,12 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
         binding = FragmentSearchClientBinding.inflate(inflater, container, false)
         viewClient = binding.root
 
+        val userService = UserService.getInstance()
+        val userRepository = UserRepository(userService)
+
+        //ViewModelFactory
+        clientViewModel =
+                ViewModelProvider(this,ClientViewModelFactory())[ClientViewModel::class.java]
         //Recycler
         recyclerView = viewClient.findViewById(R.id.clientList)
         initRecycler()
@@ -57,10 +69,25 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.clientList.layoutManager = LinearLayoutManager(viewClient.context)
         binding.clientList.adapter = adapter
 
-        clientViewModel.clientList.observe(viewLifecycleOwner){
-            adapter.setClientList(it)
+        clientViewModel.state.observe(viewLifecycleOwner){ state ->
+            when (state) {
+                // just checking equality because Loading is a -singleton object instance-
+                StateClient.Loading -> {
+                    // TODO: If you need do something in loading
+                }
+                // Error and Success are both -classes- so we need to check their type with 'is'
+                is StateClient.Error -> {
+                    // TODO: If you need do something in error
+                }
+                is StateClient.SuccessList -> {
+                    state.userList?.let { adapter.setClientList(it) }
+                }
+                else -> {
+                    // TODO: Not state loaded
+                }
+            }
         }
-        clientViewModel.findAllClients()
+        clientViewModel.findAllUsers()
     }
 
     override fun onQueryTextSubmit(p0: String): Boolean {

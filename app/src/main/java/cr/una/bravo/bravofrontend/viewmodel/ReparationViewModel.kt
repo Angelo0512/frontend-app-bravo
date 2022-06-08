@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import cr.una.bravo.bravofrontend.model.Report
-import cr.una.bravo.bravofrontend.model.ReportProvider
 import cr.una.bravo.bravofrontend.repository.ReportRepository
 import kotlinx.coroutines.*
 

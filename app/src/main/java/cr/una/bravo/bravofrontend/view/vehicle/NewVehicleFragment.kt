@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.Navigation
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
 import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
+import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModelFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -26,7 +29,7 @@ class NewVehicleFragment : Fragment() {
 
     // View model
     private lateinit var vehicleViewModel: VehicleViewModel
-  
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,27 +38,31 @@ class NewVehicleFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding=  FragmentNewVehicleBinding.inflate(inflater,container, false)
 
-        val spinnerTipo: Spinner = view.findViewById(R.id.field_Vehicle_Tipo)
+        // TaskViewModelFactory
+        vehicleViewModel =
+            ViewModelProvider(this, VehicleViewModelFactory())[VehicleViewModel::class.java]
+
+        val spinnerTipo: Spinner = binding.fieldVehicleTipo
         val adapterTipo: ArrayAdapter<String> = ArrayAdapter<String>(
-            view.context,
+            activity?.applicationContext!!,
             android.R.layout.simple_spinner_dropdown_item,
             itemListTipo
         )
         spinnerTipo.adapter = adapterTipo
 
-        val spinnerTipoMotor: Spinner = view.findViewById(R.id.field_Vehicle_TipoMotor)
+        val spinnerTipoMotor: Spinner = binding.fieldVehicleTipoMotor
         val adapterTipoMotor: ArrayAdapter<String> = ArrayAdapter<String>(
-            view.context,
+            activity?.applicationContext!!,
             android.R.layout.simple_spinner_dropdown_item,
             itemListTipoMotor
         )
         spinnerTipoMotor.adapter = adapterTipoMotor
 
-        view.findViewById<Button>(R.id.btn_Vehicle_SubmitNew).setOnClickListener { Navigation.findNavController(view).navigate(
+        binding.btnVehicleSubmitNew.setOnClickListener { findNavController().navigate(
             R.id.action_insertVehicle_to_insertClientFragment
         ) }
 
-        return view
+        return binding.root
     }
 
 }

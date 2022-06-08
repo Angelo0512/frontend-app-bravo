@@ -1,8 +1,8 @@
 package cr.una.bravo.bravofrontend.service
 
-/*
-import edu.mike.frontend.taskapp.model.LoginRequest
-import edu.mike.frontend.taskapp.model.UserLoginResponse
+import cr.una.bravo.bravofrontend.model.LoginRequest
+import cr.una.bravo.bravofrontend.model.UserLoginResponse
+
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -21,4 +21,4 @@ interface LoginService {
             return loginService!!
         }
     }
-}*/
+}

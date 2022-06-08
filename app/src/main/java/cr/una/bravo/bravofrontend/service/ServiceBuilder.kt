@@ -1,7 +1,7 @@
 package cr.una.bravo.bravofrontend.service
-/*
-import edu.mike.frontend.taskapp.BuildConfig
-import edu.mike.frontend.taskapp.utils.AuthorizationInterceptor
+
+import cr.una.bravo.bravofrontend.BuildConfig
+import cr.una.bravo.bravofrontend.utils.AuthorizationInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,7 +16,7 @@ object ServiceBuilder {
         OkHttpClient.Builder().addInterceptor(AuthorizationInterceptor()).build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.BASE_URL) // change this IP for testing by your actual machine IP
+        .baseUrl("https://bravo-backend-mov-2022.herokuapp.com") // change this IP for testing by your actual machine IP
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
@@ -24,4 +24,4 @@ object ServiceBuilder {
     fun <T> buildService(service: Class<T>): T {
         return retrofit.create(service)
     }
-}*/
+}

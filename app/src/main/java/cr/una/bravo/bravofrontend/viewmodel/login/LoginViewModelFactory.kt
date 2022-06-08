@@ -1,8 +1,9 @@
-package cr.una.bravo.bravofrontend.viewmodel
-/*
+package cr.una.bravo.bravofrontend.viewmodel.login
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import cr.una.bravo.bravofrontend.repository.LoginRepository
+import cr.una.bravo.bravofrontend.service.LoginService
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
@@ -21,4 +22,4 @@ class LoginViewModelFactory : ViewModelProvider.Factory {
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
-}*/
+}

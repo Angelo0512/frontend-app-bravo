@@ -1,5 +1,11 @@
 package cr.una.bravo.bravofrontend.repository
-/*
+
+import cr.una.bravo.bravofrontend.model.LoginRequest
+import cr.una.bravo.bravofrontend.model.UserLoginResponse
+import cr.una.bravo.bravofrontend.service.LoginService
+import cr.una.bravo.bravofrontend.utils.MyApplication.Companion.sessionManager
+import retrofit2.Response
+
 class LoginRepository constructor (
     private val loginService: LoginService
 ){
@@ -38,4 +44,4 @@ class LoginRepository constructor (
         // If user credentials will be cached in local storage, it is recommended it be encrypted
         // @see https://developer.android.com/training/articles/keystore
     }
-}*/
+}

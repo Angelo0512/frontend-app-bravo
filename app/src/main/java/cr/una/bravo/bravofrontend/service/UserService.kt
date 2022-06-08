@@ -24,11 +24,7 @@ interface UserService {
         var userService : UserService? = null
         fun getInstance() : UserService {
             if(userService == null){
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("https://629f8590461f8173e4eb7fda.mockapi.io/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                userService = retrofit.create(UserService::class.java)
+                userService = ServiceBuilder.buildService(UserService::class.java)
             }
             return userService!!
         }

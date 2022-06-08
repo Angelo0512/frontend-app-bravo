@@ -23,11 +23,7 @@ interface ReportService {
         var reportService : ReportService? = null
         fun getInstance() : ReportService {
             if(reportService == null){
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("https://629f8590461f8173e4eb7fda.mockapi.io/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                reportService = retrofit.create(ReportService::class.java)
+                reportService = ServiceBuilder.buildService(ReportService::class.java)
             }
             return reportService!!
         }

@@ -23,11 +23,7 @@ interface ServiceService {
         var serviceService : ServiceService? = null
         fun getInstance() : ServiceService {
             if(serviceService == null){
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("https://629f8590461f8173e4eb7fda.mockapi.io/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                serviceService = retrofit.create(ServiceService::class.java)
+                serviceService = ServiceBuilder.buildService(ServiceService::class.java)
             }
             return serviceService!!
         }

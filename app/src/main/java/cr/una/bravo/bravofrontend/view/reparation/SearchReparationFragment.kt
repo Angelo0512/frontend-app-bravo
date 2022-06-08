@@ -7,18 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.adapter.ReparationCardAdapter
 import cr.una.bravo.bravofrontend.databinding.FragmentSearchReparationBinding
-import cr.una.bravo.bravofrontend.viewmodel.ReparationViewModel
+import cr.una.bravo.bravofrontend.repository.ReportRepository
+import cr.una.bravo.bravofrontend.repository.VehicleRepository
+import cr.una.bravo.bravofrontend.service.ReportService
+import cr.una.bravo.bravofrontend.service.VehicleService
+import cr.una.bravo.bravofrontend.viewmodel.*
 
 
 class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentSearchReparationBinding
-    private val reparationViewModel: ReparationViewModel by viewModels()
+    private lateinit var reparationViewModel: ReparationViewModel
     private val adapter = ReparationCardAdapter()
 
     lateinit var viewReparation: View
@@ -33,6 +38,14 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
         // Inflate the layout for this fragment
         binding = FragmentSearchReparationBinding.inflate(inflater, container, false)
         viewReparation = binding.root
+
+        //Retrofit Service
+        val reportService = ReportService.getInstance()
+        val reportRepository = ReportRepository(reportService)
+
+        //ViewModelfactory
+        reparationViewModel =
+            ViewModelProvider(this, ReparationViewModelFactory())[ReparationViewModel::class.java]
 
         //RecyclerView
         recyclerView = viewReparation.findViewById(R.id.reparationList)
@@ -60,8 +73,23 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.reparationList.layoutManager = LinearLayoutManager(viewReparation.context)
         binding.reparationList.adapter = adapter
 
-        reparationViewModel.reportList.observe(viewLifecycleOwner){
-            adapter.setReparationsList(it)
+        reparationViewModel.state.observe(viewLifecycleOwner){ state ->
+            when (state) {
+                // just checking equality because Loading is a -singleton object instance-
+                StateReparation.Loading -> {
+                    // TODO: If you need do something in loading
+                }
+                // Error and Success are both -classes- so we need to check their type with 'is'
+                is StateReparation.Error -> {
+                    // TODO: If you need do something in error
+                }
+                is StateReparation.SuccessList -> {
+                    state.reportList?.let { adapter.setReparationsList(it) }
+                }
+                else -> {
+                    // TODO: Not state loaded
+                }
+            }
         }
         reparationViewModel.findAllReparations()
     }

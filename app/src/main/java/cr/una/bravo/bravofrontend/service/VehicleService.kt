@@ -23,11 +23,7 @@ interface VehicleService {
          var vehicleService : VehicleService? = null
          fun getInstance() : VehicleService {
              if(vehicleService == null){
-                 val retrofit = Retrofit.Builder()
-                     .baseUrl("https://629f8590461f8173e4eb7fda.mockapi.io/")
-                     .addConverterFactory(GsonConverterFactory.create())
-                     .build()
-                 vehicleService = retrofit.create(VehicleService::class.java)
+                 vehicleService = ServiceBuilder.buildService(VehicleService::class.java)
              }
              return vehicleService!!
          }

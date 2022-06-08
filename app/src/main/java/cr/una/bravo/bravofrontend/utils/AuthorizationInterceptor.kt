@@ -16,5 +16,4 @@ class AuthorizationInterceptor : Interceptor {
 
         return chain.proceed(requestBuilder.build())
     }
-
 }

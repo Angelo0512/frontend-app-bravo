@@ -1,7 +1,7 @@
 package cr.una.bravo.bravofrontend.model
 
 data class Vehicle (
-    var id: Long,
+    var id: Long? = null,
     var plateNumber: String,
     var vinNumber: String,
     var brand: String,

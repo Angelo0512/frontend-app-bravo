@@ -70,7 +70,7 @@
 
     <!-- Detalle de reparaciones -->
     <string name="detalle_reparaciones">Info de reparación</string>
-    <string name="id_detail">Id Reparacion:</string>
+    <string name="id_detail">Reparacion:</string>
     <string name="cedula_detail">Cedula:</string>
     <string name="client_detail">Cliente:</string>
     <string name="placa_detail">Placa de vehiculo:</string>
@@ -104,5 +104,7 @@
     <string name="marca">Marca:</string>
     <string name="tipo">Tipo:</string>
     <string name="busqueda_vehiculos">Búsqueda Vehículos</string>
+    <string name="idText">id</string>
+    <string name="plateText">TextView</string>
 
 </resources>

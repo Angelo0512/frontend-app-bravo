@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.ReparationsListItemBinding
 import cr.una.bravo.bravofrontend.model.Report
 import cr.una.bravo.bravofrontend.viewmodel.ReparationCardViewHolder
@@ -29,14 +32,20 @@ class ReparationCardAdapter :
 
     override fun onBindViewHolder(holder: ReparationCardViewHolder, position: Int) {
         holder.bindReparationCard(reparationCards[position])
+
         holder.reparationsListItemBinding.root.setOnClickListener{
-            val toast = Toast.makeText(it.context , "Click", Toast.LENGTH_LONG)
-            toast.show()
+            val bundle = bundleOf(REPORT_ID to reparationCards[position].id.toString())
+            holder.reparationsListItemBinding.root.findNavController().navigate(
+                R.id.action_searchReparationFragment_to_reparationDetailsFragment, bundle
+            )
         }
     }
 
     override fun getItemCount(): Int = reparationCards.size
 
+    companion object {
+        const val REPORT_ID = "report_id"
+    }
     @SuppressLint("NotifyDataSetChanged")
     fun filter(SearchText: String, spinnerFilter: String) {
         lateinit var newList: MutableList<Report>

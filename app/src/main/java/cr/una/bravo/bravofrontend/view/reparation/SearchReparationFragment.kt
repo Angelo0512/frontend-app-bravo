@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -23,7 +24,10 @@ import cr.una.bravo.bravofrontend.viewmodel.*
 
 class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentSearchReparationBinding
-    private lateinit var reparationViewModel: ReparationViewModel
+    private val reparationViewModel: ReparationViewModel by activityViewModels{
+        ReparationViewModelFactory()
+    }
+
     private val adapter = ReparationCardAdapter()
 
     lateinit var viewReparation: View
@@ -44,8 +48,8 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
         val reportRepository = ReportRepository(reportService)
 
         //ViewModelfactory
-        reparationViewModel =
-            ViewModelProvider(this, ReparationViewModelFactory())[ReparationViewModel::class.java]
+       /* reparationViewModel =
+            ViewModelProvider(this, ReparationViewModelFactory())[ReparationViewModel::class.java]*/
 
         //RecyclerView
         recyclerView = viewReparation.findViewById(R.id.reparationList)

@@ -1,6 +1,9 @@
 package cr.una.bravo.bravofrontend.service
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import cr.una.bravo.bravofrontend.BuildConfig
+import cr.una.bravo.bravofrontend.BuildConfig.DATE_FORMAT
 import cr.una.bravo.bravofrontend.utils.AuthorizationInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,7 +29,7 @@ object ServiceBuilder {
             .addInterceptor(AuthorizationInterceptor()).build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://bravo-backend-mov-2022.herokuapp.com") // change this IP for testing by your actual machine IP
+        .baseUrl("https://629f8590461f8173e4eb7fda.mockapi.io/") // change this IP for testing by your actual machine IP
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()

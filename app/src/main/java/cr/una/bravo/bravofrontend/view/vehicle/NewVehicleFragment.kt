@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.Spinner
 import androidx.navigation.Navigation
 import cr.una.bravo.bravofrontend.R
+import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
+import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -19,12 +21,19 @@ class NewVehicleFragment : Fragment() {
     private var itemListTipo: Array<String> = arrayOf("1", "2", "3")
     private var itemListTipoMotor: Array<String> = arrayOf("4", "5", "6")
 
+    private var _binding: FragmentNewVehicleBinding? = null
+    private val binding get() = _binding!!
+
+    // View model
+    private lateinit var vehicleViewModel: VehicleViewModel
+  
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_new_vehicle, container, false)
+        _binding=  FragmentNewVehicleBinding.inflate(inflater,container, false)
 
         val spinnerTipo: Spinner = view.findViewById(R.id.field_Vehicle_Tipo)
         val adapterTipo: ArrayAdapter<String> = ArrayAdapter<String>(

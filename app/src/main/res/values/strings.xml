@@ -100,9 +100,11 @@
     <string name="edit_btn">edit_botton</string>
     <string name="observation_details">Observaciones:</string>
     <string name="placa">Placa:</string>
-    <string name="cliente">Cliente:</string>
+    <string name="vin">VIN:</string>
     <string name="marca">Marca:</string>
-    <string name="tipo">Tipo:</string>
+    <string name="motorSerial">Serial del Motor:</string>
+    <string name="vehicleClass">Tipo:</string>
+    <string name="tipo">Tipo de Motor:</string>
     <string name="busqueda_vehiculos">Búsqueda Vehículos</string>
     <string name="idText">id</string>
     <string name="plateText">TextView</string>

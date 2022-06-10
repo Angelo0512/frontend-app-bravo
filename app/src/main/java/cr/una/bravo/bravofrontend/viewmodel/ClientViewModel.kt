@@ -35,7 +35,7 @@ class ClientViewModel constructor(
         _state.value = StateClient.Loading
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             loading.postValue(true)
-            val response = userRepository.getUserById(id)
+            val response = userRepository.getClientById(id)
             withContext(Dispatchers.Main){
                 _state.postValue(
                     if(response.isSuccessful) StateClient.SuccessUserBasic(response.body())

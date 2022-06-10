@@ -35,7 +35,7 @@ class ClientViewModel constructor(
         _state.value = StateClient.Loading
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             loading.postValue(true)
-            val response = userRepository.getUserById(id)
+            val response = userRepository.getClientById(id)
             withContext(Dispatchers.Main){
                 _state.postValue(
                     if(response.isSuccessful) StateClient.SuccessUserBasic(response.body())
@@ -49,7 +49,7 @@ class ClientViewModel constructor(
         _state.value = StateClient.Loading
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             loading.postValue(true)
-            val response = userRepository.getAllUsers()
+            val response = userRepository.getAllClients()
             withContext(Dispatchers.Main){
                 _state.postValue(
                     if(response.isSuccessful) StateClient.SuccessList(response.body())
@@ -63,7 +63,7 @@ class ClientViewModel constructor(
         _state.value = StateClient.Loading
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
             loading.postValue(true)
-            val response = userRepository.createUser(userRequest)
+            val response = userRepository.createClient(userRequest)
             withContext(Dispatchers.Main) {
                 _state.postValue(
                     // when you get a response, the state is now either Success or Error

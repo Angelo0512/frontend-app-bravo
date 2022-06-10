@@ -8,8 +8,11 @@ class VehicleCardViewHolder(
     val vehicleListItemBinding: VehicleListItemBinding
 ) : RecyclerView.ViewHolder(vehicleListItemBinding.root){
     fun bindVehicleCard(vehCard : Vehicle){
-        vehicleListItemBinding.vehiclePlate.text = vehCard.plateNumber
-        vehicleListItemBinding.vehicleBrand.text = vehCard.brand
-        vehicleListItemBinding.vehicleType.text = vehCard.vehicleClass
+        vehicleListItemBinding.vehiclePlate.text = "Placa: " + vehCard.plateNumber
+        vehicleListItemBinding.vehicleVIN.text = "VIN: " + vehCard.vinNumber
+        vehicleListItemBinding.vehicleBrand.text = "Marca: " + vehCard.brand
+        vehicleListItemBinding.vehicleMotorSerial.text = "Serial del Motor: " + vehCard.motorSerial
+        vehicleListItemBinding.vehicleType.text = "Tipo: " + vehCard.vehicleClass
+        vehicleListItemBinding.vehicleMotorType.text = "Tipo de Motor: " + vehCard.motorType
     }
 }

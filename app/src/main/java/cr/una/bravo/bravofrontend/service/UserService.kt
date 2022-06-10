@@ -20,6 +20,17 @@ interface UserService {
     @POST("v1/users")
     suspend fun createUser(@Body UserRequest : User) : Response<User>
 
+
+    @GET("v1/clients")
+    suspend fun getAllClients() : Response<List<UserBasic>>
+
+    @GET("v1/clients/{id}")
+    suspend fun getClientById(@Path("id") id: Long) : Response<UserBasic>
+
+    @POST("v1/clients")
+    suspend fun createClient(@Body UserRequest : User) : Response<User>
+
+
     companion object{
         var userService : UserService? = null
         fun getInstance() : UserService {

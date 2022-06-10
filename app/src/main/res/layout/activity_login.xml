@@ -13,16 +13,16 @@
 
     <ImageView
         android:id="@+id/logo_view"
-        android:layout_width="326dp"
+        android:layout_width="313dp"
         android:layout_height="379dp"
         android:contentDescription="@string/login_image_description"
         android:src="@drawable/engine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.311"
+        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <Button
         android:id="@+id/login_button"

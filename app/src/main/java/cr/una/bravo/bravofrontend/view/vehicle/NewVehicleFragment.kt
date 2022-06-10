@@ -23,8 +23,8 @@ import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModelFactory
  */
 class NewVehicleFragment : Fragment() {
 
-    private var itemListTipo: Array<String> = arrayOf("1", "2", "3")
-    private var itemListTipoMotor: Array<String> = arrayOf("4", "5", "6")
+    private var itemListTipo: Array<String> = arrayOf("Van", "Pickup", "Deportivo", "Convertible")
+    private var itemListTipoMotor: Array<String> = arrayOf("Electrico", "Diesel", "Gasolina")
 
     private var _binding: FragmentNewVehicleBinding? = null
     private val binding get() = _binding!!
@@ -70,7 +70,7 @@ class NewVehicleFragment : Fragment() {
 
 
     binding.btnVehicleSubmitNew.setOnClickListener {
-        vehicleViewModel.createVehicle(
+        /*vehicleViewModel.createVehicle(
             Vehicle(
                 plateNumber = binding.fieldVehiclePlaca.text.toString() ,
                 vinNumber = binding.fieldVehicleVIN.text.toString(),
@@ -79,7 +79,8 @@ class NewVehicleFragment : Fragment() {
                 vehicleClass = typeSelected,
                 motorType= motorSelected,
             )
-        )
+        )*/
+
         findNavController().navigate(R.id.action_insertVehicle_to_insertClientFragment) }
 
         return binding.root

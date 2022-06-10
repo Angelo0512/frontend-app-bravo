@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".view.user.ExistingClientFragment">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TODO"
-        android:textSize="34sp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/clientExistingList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </FrameLayout>

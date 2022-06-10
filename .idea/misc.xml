@@ -52,8 +52,15 @@
         <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_existing_vehicle.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_insert_client.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_insert_vehicle.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_new_vehicle.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_new_client.xml" value="0.2" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_new_vehicle.xml" value="0.2" />
         <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_reparation_details.xml" value="0.264" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_search_client.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_search_reparation.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/fragment_search_vehicle.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/service_list_item.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/vehicle_item.xml" value="0.264" />
+        <entry key="..\:/Users/arami/Desktop/I Ciclo 2022/Moviles/prueba/frontend-app-bravo/app/src/main/res/layout/vehicle_list_item.xml" value="0.12360688956433637" />
       </map>
     </option>
   </component>

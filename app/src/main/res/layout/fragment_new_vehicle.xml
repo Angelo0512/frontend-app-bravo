@@ -15,7 +15,7 @@
         android:ems="10"
         android:hint="@string/field_Vehiculo_Placa"
         android:inputType="textPersonName"
-        android:minHeight="50dp"
+        android:minHeight="48dp"
         android:textColorHint="@color/midnightBlue" />
 
     <EditText
@@ -27,7 +27,7 @@
         android:ems="10"
         android:hint="@string/field_Vehiculo_VIN"
         android:inputType="textPersonName"
-        android:minHeight="50dp"
+        android:minHeight="48dp"
         android:textColorHint="@color/midnightBlue" />
 
     <EditText
@@ -39,7 +39,7 @@
         android:ems="10"
         android:hint="@string/field_Vehiculo_Marca"
         android:inputType="textPersonName"
-        android:minHeight="50dp"
+        android:minHeight="48dp"
         android:textColorHint="@color/midnightBlue" />
 
     <EditText
@@ -51,7 +51,16 @@
         android:ems="10"
         android:hint="@string/field_Vehiculo_Serie"
         android:inputType="textPersonName"
-        android:minHeight="50dp"
+        android:minHeight="48dp"
+        android:textColorHint="@color/midnightBlue" />
+
+    <TextView
+        android:id="@+id/text_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="20dp"
+        android:text="@string/typeSpinner"
+        android:textColor="@color/darkBlue"
         android:textColorHint="@color/midnightBlue" />
 
     <Spinner
@@ -62,6 +71,12 @@
         android:contentDescription="@string/field_Vehiculo_cd_Tipo"
         android:minHeight="50dp"
         android:spinnerMode="dialog" />
+
+    <TextView
+        android:id="@+id/text_motor_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/motor_type_spinner" />
 
     <Spinner
         android:id="@+id/field_Vehicle_TipoMotor"

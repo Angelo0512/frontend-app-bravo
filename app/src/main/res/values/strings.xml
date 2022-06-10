@@ -26,7 +26,7 @@
     <string name="field_Client_ID">Identificación</string>
     <string name="field_Client_Name">Nombre</string>
     <string name="field_Client_Email">Email</string>
-    <string name="field_Client_Phone">Teléfono</string>
+    <string name="field_Client_Last_Name">Apellido</string>
     <!-- Service -->
     <string name="title_insert_service">Ingreso de Servicios</string>
     <string name="field_Service_AddMore">Añadir más +</string>
@@ -108,5 +108,7 @@
     <string name="busqueda_vehiculos">Búsqueda Vehículos</string>
     <string name="idText">id</string>
     <string name="plateText">TextView</string>
+    <string name="typeSpinner">Tipo de vehiculo:</string>
+    <string name="motor_type_spinner">Tipo de motor</string>
 
 </resources>

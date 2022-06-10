@@ -90,7 +90,7 @@
     <string name="cliente_identificacion">Identificación:</string>
     <string name="cliente_nombre">Nombre:</string>
     <string name="cliente_email">Email:</string>
-    <string name="cliente_telefono">Teléfono:</string>
+    <string name="cliente_entry_date">Fecha de Ingreso:</string>
 
     <!-- String related to service_details-->
     <string name="title_service_details">Info de servicios:</string>

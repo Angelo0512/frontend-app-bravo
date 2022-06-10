@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.databinding.VehicleItemBinding
 import cr.una.bravo.bravofrontend.model.Vehicle
 
-class VehicleReportAdapter : RecyclerView.Adapter<VehicleViewHolder>(){
+class VehicleReportAdapter : RecyclerView.Adapter<VehicleViewHolder>() {
 
     private var vehicle = mutableListOf<Vehicle>()
     private val clickedPosition = -1
@@ -27,11 +27,12 @@ class VehicleReportAdapter : RecyclerView.Adapter<VehicleViewHolder>(){
 
     override fun onBindViewHolder(holder: VehicleViewHolder, position: Int) {
         holder.bindVehicle(vehicle[position])
+        /*
         if (clickedPosition == position)
             holder.vehicleListItemBinding.root.setBackgroundColor(Color.parseColor("#000000"))
         else
             holder.vehicleListItemBinding.root.setBackgroundColor(Color.parseColor("#ffffff"))
-
+*/
 
     }
 

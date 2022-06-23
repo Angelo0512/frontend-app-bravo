@@ -15,8 +15,8 @@ data class User(
     var password: String,
     var enabled: Boolean,
     var tokenExpired: Boolean,
-    var createDate: Date,
-    var roles: List<Roles>,
+    var createDate: Date?,
+    var roles: List<Roles>?,
 )
 
 /**

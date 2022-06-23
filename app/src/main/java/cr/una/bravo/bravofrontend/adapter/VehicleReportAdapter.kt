@@ -3,7 +3,10 @@ package cr.una.bravo.bravofrontend.adapter
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.VehicleItemBinding
 import cr.una.bravo.bravofrontend.model.Vehicle
 
@@ -27,14 +30,16 @@ class VehicleReportAdapter : RecyclerView.Adapter<VehicleViewHolder>() {
 
     override fun onBindViewHolder(holder: VehicleViewHolder, position: Int) {
         holder.bindVehicle(vehicle[position])
-        /*
-        if (clickedPosition == position)
-            holder.vehicleListItemBinding.root.setBackgroundColor(Color.parseColor("#000000"))
-        else
-            holder.vehicleListItemBinding.root.setBackgroundColor(Color.parseColor("#ffffff"))
-*/
+        holder.vehicleListItemBinding.root.setOnClickListener{
+            val bundle = bundleOf(VEHICLE_ID to vehicle[position].id.toString())
+            holder.vehicleListItemBinding.root.findNavController().navigate(
+                R.id.action_insertVehicle_to_insertClientFragment, bundle
+            )
+        }
 
     }
-
+    companion object {
+        const val VEHICLE_ID = "vehicle_id"
+    }
     override fun getItemCount(): Int = vehicle.size
 }

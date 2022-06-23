@@ -50,14 +50,6 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ServiceList"
-        android:layout_width="match_parent"
-        android:layout_height="421dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp" />
-
     <Button
         android:id="@+id/btn_Service_End"
         android:layout_width="match_parent"

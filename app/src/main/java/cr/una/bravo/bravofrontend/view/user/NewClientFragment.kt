@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -51,7 +52,8 @@ class NewClientFragment : Fragment() {
                     createDate = null
                 )
             )
-            findNavController().navigate(R.id.action_insertClientFragment_to_insertServiceFragment)
+            val bundle = bundleOf("user_id" to binding.fieldClientID.text.toString().toLong())
+            findNavController().navigate(R.id.action_insertClientFragment_to_insertServiceFragment, bundle)
 
         }
 

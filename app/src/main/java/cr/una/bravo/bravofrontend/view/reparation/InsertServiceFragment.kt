@@ -1,5 +1,6 @@
 package cr.una.bravo.bravofrontend.view.reparation
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -112,6 +113,8 @@ class InsertServiceFragment : Fragment() {
 
         }
 
+        //val inputText = arguments?.getString("user_id")
+        //val alertDialog = AlertDialog.Builder(context).setTitle("user_id").setMessage(inputText).show();
         return binding.root
     }
 

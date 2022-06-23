@@ -52,7 +52,7 @@ class NewClientFragment : Fragment() {
                     createDate = null
                 )
             )
-            val bundle = bundleOf("user_id" to binding.fieldClientID.text.toString().toLong())
+            val bundle = bundleOf("user_id" to binding.fieldClientID.text.toString())
             findNavController().navigate(R.id.action_insertClientFragment_to_insertServiceFragment, bundle)
 
         }

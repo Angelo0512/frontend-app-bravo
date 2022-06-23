@@ -16,7 +16,8 @@
         android:backgroundTint="@color/white"
         android:contentDescription="@string/generic_Return"
         android:scaleType="centerInside"
-        android:src="@drawable/left_arrow" />
+        android:src="@drawable/left_arrow"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/lb_title_AddService"
@@ -48,7 +49,21 @@
         android:id="@+id/chip_group"
         app:singleSelection="true"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="200dp">
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <EditText
+        android:id="@+id/description_report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/descripcion_de_la_reparacion"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="@string/description"
+        android:textColor="#455A64" />
 
     <Button
         android:id="@+id/btn_Service_End"

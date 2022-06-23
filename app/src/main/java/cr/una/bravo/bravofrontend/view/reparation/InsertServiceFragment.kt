@@ -16,10 +16,13 @@ import com.google.android.material.chip.ChipGroup
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.FragmentInsertServiceBinding
 import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
+import cr.una.bravo.bravofrontend.model.Report
 import cr.una.bravo.bravofrontend.model.Service
 import cr.una.bravo.bravofrontend.model.UserBasic
+import cr.una.bravo.bravofrontend.service.ReportService
 import cr.una.bravo.bravofrontend.utils.ServiceDialog
 import cr.una.bravo.bravofrontend.viewmodel.*
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -31,7 +34,7 @@ class InsertServiceFragment : Fragment() {
     private var serviceResponse = mutableListOf<Service>()
     private lateinit var chipGroup: ChipGroup
     private lateinit var serviceViewModel: ServiceViewModel
-
+    private lateinit var reportViewModel: ReparationViewModel
     private fun createServices(){
         for(service in services){
             serviceViewModel.createService(
@@ -65,6 +68,10 @@ class InsertServiceFragment : Fragment() {
         serviceViewModel =
             ViewModelProvider(this, ServiceViewModelFactory())[ServiceViewModel::class.java]
 
+        // ReparationViewModelFactory
+        reportViewModel =
+            ViewModelProvider(this, ReparationViewModelFactory())[ReparationViewModel::class.java]
+
         binding.btnServiceReturn.setOnClickListener { Navigation.findNavController(binding.root).navigate(
             R.id.action_insertServiceFragment_to_insertClientFragment
         ) }
@@ -94,7 +101,19 @@ class InsertServiceFragment : Fragment() {
         }
 
         binding.btnServiceEnd.setOnClickListener {
-
+            // TODO: Crear la reparacion
+           /*
+           createServices()
+           reportViewModel.createReparation(
+                Report(
+                    creationDate = Date(),
+                    description = binding.descriptionReport.text.toString(),
+                    services = serviceResponse,
+                    client= cliente,
+                    vehicle = vehicle,
+                    technician = technician,
+                )
+            )*/
             Navigation.findNavController(binding.root).navigate(R.id.action_insertServiceFragment_to_mainFragment
         ) }
 

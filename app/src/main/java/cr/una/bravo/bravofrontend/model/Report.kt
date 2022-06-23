@@ -3,7 +3,7 @@ package cr.una.bravo.bravofrontend.model
 import java.util.*
 
 data class Report (
-    var id: Long,
+    var id: Long? = null,
     var creationDate: Date,
     var description: String,
     var services: List<Service>?,

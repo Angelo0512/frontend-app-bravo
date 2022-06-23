@@ -9,10 +9,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.Navigation
 import cr.una.bravo.bravofrontend.R
+import cr.una.bravo.bravofrontend.adapter.VehicleReportAdapter
 import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
 import cr.una.bravo.bravofrontend.model.Vehicle
 import cr.una.bravo.bravofrontend.viewmodel.VehicleViewModel
@@ -70,18 +72,18 @@ class NewVehicleFragment : Fragment() {
 
 
     binding.btnVehicleSubmitNew.setOnClickListener {
-        /*vehicleViewModel.createVehicle(
+       /* vehicleViewModel.createVehicle(
             Vehicle(
                 plateNumber = binding.fieldVehiclePlaca.text.toString() ,
                 vinNumber = binding.fieldVehicleVIN.text.toString(),
                 brand = binding.fieldVehicleMarca.text.toString(),
                 motorSerial = binding.fieldVehicleSerie.text.toString(),
-                vehicleClass = typeSelected,
-                motorType= motorSelected,
+                vehicleClass = spinnerTipo.selectedItem.toString(),
+                motorType= spinnerTipoMotor.selectedItem.toString(),
             )
         )*/
-
-        findNavController().navigate(R.id.action_insertVehicle_to_insertClientFragment) }
+        var bundle = bundleOf("vehicle_plate" to binding.fieldVehiclePlaca.text.toString())
+        findNavController().navigate(R.id.action_insertVehicle_to_insertClientFragment, bundle) }
 
         return binding.root
     }

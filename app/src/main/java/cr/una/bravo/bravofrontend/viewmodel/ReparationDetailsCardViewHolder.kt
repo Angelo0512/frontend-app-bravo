@@ -9,10 +9,10 @@ class ReparationDetailsCardViewHolder(
     private val serviceListItemBinding: ServiceListItemBinding
 ) : RecyclerView.ViewHolder(serviceListItemBinding.root) {
     fun bindReparationCard(repCard: Service){
-        serviceListItemBinding.servicioId.text = repCard.id.toString()
-        serviceListItemBinding.servicioName.text = repCard.name
-        serviceListItemBinding.observations.text = repCard.observations
-        serviceListItemBinding.state.text = repCard.state
+        serviceListItemBinding.servicioId.text = "ID: " + repCard.id.toString()
+        serviceListItemBinding.servicioName.text = "Nombre: " + repCard.name
+        serviceListItemBinding.observations.text = "Observaciones: " + repCard.observations
+        serviceListItemBinding.state.text = "Estado: " + repCard.state
 
     }
 }

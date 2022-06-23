@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
@@ -34,6 +35,11 @@ class ReparationDetailsFragment : Fragment() {
 
         binding = FragmentReparationDetailsBinding.inflate(inflater, container, false)
         viewReparation = binding.root
+
+        binding.btnRepInfoReturn.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_reparationDetailsFragment_to_searchReparationFragment)
+        }
 
 
         val reportId: String = arguments?.getString(REPORT_ID) ?: "0"

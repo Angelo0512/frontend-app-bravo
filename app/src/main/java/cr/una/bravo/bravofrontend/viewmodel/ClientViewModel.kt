@@ -59,6 +59,8 @@ class ClientViewModel constructor(
         }
     }
 
+
+
     fun createUser(userRequest : User){
         _state.value = StateClient.Loading
         job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {

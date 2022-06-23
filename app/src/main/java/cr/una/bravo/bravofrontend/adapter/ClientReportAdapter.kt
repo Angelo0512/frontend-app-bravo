@@ -28,7 +28,5 @@ class ClientReportAdapter : RecyclerView.Adapter<ClientViewHolder>(){
         holder.bindClient(user[position])
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = user.size
 }

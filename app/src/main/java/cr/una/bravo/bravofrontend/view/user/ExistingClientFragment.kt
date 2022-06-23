@@ -6,12 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cr.una.bravo.bravofrontend.R
+import cr.una.bravo.bravofrontend.databinding.FragmentExistingClientBinding
+import cr.una.bravo.bravofrontend.viewmodel.ClientViewModel
 
 /**
  * A simple [Fragment] subclass.
  */
 class ExistingClientFragment : Fragment() {
+    // Definition of the binding variable
+    private var _binding: FragmentExistingClientBinding? = null
+    private val binding get() = _binding!!
 
+    private lateinit var clientViewModel: ClientViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

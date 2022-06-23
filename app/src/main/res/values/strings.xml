@@ -110,5 +110,8 @@
     <string name="plateText">TextView</string>
     <string name="typeSpinner">Tipo de vehiculo:</string>
     <string name="motor_type_spinner">Tipo de motor</string>
+    <string name="ingrese_un_nuevo_servicio">Ingrese un nuevo servicio</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="agregar">Agregar</string>
 
 </resources>

@@ -7,29 +7,44 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.navigation.Navigation
 import cr.una.bravo.bravofrontend.R
+import cr.una.bravo.bravofrontend.databinding.FragmentInsertServiceBinding
+import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
+import cr.una.bravo.bravofrontend.utils.ServiceDialog
 
 /**
  * A simple [Fragment] subclass.
  */
 class InsertServiceFragment : Fragment() {
+    private var _binding: FragmentInsertServiceBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_insert_service, container, false)
+        _binding=  FragmentInsertServiceBinding.inflate(inflater,container, false)
 
-        view.findViewById<ImageButton>(R.id.btn_Service_Return).setOnClickListener { Navigation.findNavController(view).navigate(
+        binding.btnServiceReturn.setOnClickListener { Navigation.findNavController(binding.root).navigate(
             R.id.action_insertServiceFragment_to_insertClientFragment
         ) }
-        view.findViewById<Button>(R.id.btn_Service_End).setOnClickListener { Navigation.findNavController(view).navigate(
+
+        binding.btnServiceEnd.setOnClickListener { Navigation.findNavController(binding.root).navigate(
             R.id.action_insertServiceFragment_to_mainFragment
         ) }
 
-        return view
+        binding.btnServiceAddMore.setOnClickListener{
+            ServiceDialog(
+                onSubmitClickListener = { service ->
+                    Toast.makeText(requireContext(), "Usted ingreso: $service", Toast.LENGTH_SHORT).show()
+                }
+            ).show(parentFragmentManager, "dialog")
+
+        }
+        return binding.root
     }
 
 }

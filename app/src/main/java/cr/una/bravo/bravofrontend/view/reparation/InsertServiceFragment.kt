@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.FragmentInsertServiceBinding
 import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
@@ -23,8 +25,28 @@ class InsertServiceFragment : Fragment() {
     private var _binding: FragmentInsertServiceBinding? = null
     private val binding get() = _binding!!
     private var services = mutableListOf<Service>()
+    private lateinit var chipGroup: ChipGroup
+
+    private fun deleteService(text:String){
+        services = services.filter { !it.name.equals(text) }.toMutableList()
+        binding.prueba.text= services.toString()
+
+    }
+    private fun addChip(text: String){
+        val chip = Chip(this.context)
+        chip.text = text
+
+        chip.isCloseIconVisible = true
 
 
+        chip.setOnCloseIconClickListener{
+            deleteService(chip.text.toString())
+            chipGroup.removeView(chip)
+
+        }
+
+        chipGroup.addView(chip)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,11 +62,14 @@ class InsertServiceFragment : Fragment() {
             R.id.action_insertServiceFragment_to_mainFragment
         ) }
 
+        chipGroup= binding.chipGroup
         binding.btnServiceAddMore.setOnClickListener{
             ServiceDialog(
                 onSubmitClickListener = { service ->
-                    Toast.makeText(requireContext(), "Usted ingreso: ${service}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Servicio ingresado correctamente", Toast.LENGTH_SHORT).show()
                     services.add(service)
+                    binding.prueba.text= services.toString()
+                    addChip(service.name)
 
                 }
 

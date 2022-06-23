@@ -51,7 +51,7 @@ class ReparationCardAdapter :
         lateinit var newList: MutableList<Report>
         if (spinnerFilter == "Cliente")
             newList = reparationCardsOriginal.filter {
-                it.client.id == SearchText.toLong()
+                it.client.id.toString() == SearchText
             } as MutableList<Report>
         if (spinnerFilter == "Placa")
             newList = reparationCardsOriginal.filter {

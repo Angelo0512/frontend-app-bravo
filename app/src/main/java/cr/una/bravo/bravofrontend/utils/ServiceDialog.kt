@@ -42,7 +42,7 @@ class ServiceDialog(
             val service = Service(
                 name = spinnerService.selectedItem.toString(),
                 observations = binding.etAmount.text.toString(),
-                state = "Pendiente",
+                state = "INCOMPLETO",
             )
             onSubmitClickListener.invoke(service)
             dismiss()

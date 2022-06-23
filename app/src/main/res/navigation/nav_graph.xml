@@ -80,7 +80,11 @@
         android:id="@+id/reparationDetailsFragment"
         android:name="cr.una.bravo.bravofrontend.view.reparation.ReparationDetailsFragment"
         android:label="fragment_reparation_details"
-        tools:layout="@layout/fragment_reparation_details" />
+        tools:layout="@layout/fragment_reparation_details" >
+        <action
+            android:id="@+id/action_reparationDetailsFragment_to_searchReparationFragment"
+            app:destination="@id/searchReparationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchVehicleFragment2"
         android:name="cr.una.bravo.bravofrontend.view.vehicle.SearchVehicleFragment"

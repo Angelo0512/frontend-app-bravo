@@ -9,6 +9,16 @@
     android:paddingEnd="10dp"
     tools:context=".view.reparation.ReparationDetailsFragment">
 
+    <ImageButton
+        android:id="@+id/btn_RepInfo_Return"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/generic_Return"
+        android:scaleType="centerInside"
+        android:src="@drawable/left_arrow" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -37,17 +47,21 @@
                 android:id="@+id/id_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
                 android:text="@string/id_detail"
-                android:textColor="@color/midnightBlue" />
+                android:textColor="@color/midnightBlue"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/idText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
                 android:paddingStart="1dp"
                 android:paddingEnd="2dp"
                 android:text="@string/idText"
-                android:textColor="#455A64" />
+                android:textColor="#455A64"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,18 +73,22 @@
                 android:id="@+id/client_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
                 android:text="@string/client_detail"
-                android:textColor="@color/midnightBlue" />
+                android:textColor="@color/midnightBlue"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/clientText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
                 android:layout_weight="1"
                 android:paddingStart="1dp"
                 android:paddingEnd="10dp"
                 android:text="@string/client_detail"
-                android:textColor="#455A64" />
+                android:textColor="#455A64"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -83,24 +101,30 @@
                 android:id="@+id/plate_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
                 android:text="@string/placa_detail"
-                android:textColor="@color/midnightBlue" />
+                android:textColor="@color/midnightBlue"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/plateText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
                 android:layout_weight="1"
                 android:text="@string/plateText"
-                android:textColor="#455A64" />
+                android:textColor="#455A64"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/services_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
             android:text="@string/services_detail"
-            android:textColor="@color/midnightBlue" />
+            android:textColor="@color/midnightBlue"
+            android:textSize="20sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/service_List"

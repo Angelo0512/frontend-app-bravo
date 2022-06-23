@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -17,6 +18,7 @@ import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
 import cr.una.bravo.bravofrontend.model.Service
 import cr.una.bravo.bravofrontend.model.UserBasic
 import cr.una.bravo.bravofrontend.utils.ServiceDialog
+import cr.una.bravo.bravofrontend.viewmodel.*
 
 /**
  * A simple [Fragment] subclass.
@@ -25,8 +27,17 @@ class InsertServiceFragment : Fragment() {
     private var _binding: FragmentInsertServiceBinding? = null
     private val binding get() = _binding!!
     private var services = mutableListOf<Service>()
+    private var serviceResponse = mutableListOf<Service>()
     private lateinit var chipGroup: ChipGroup
+    private lateinit var serviceViewModel: ServiceViewModel
 
+    private fun createServices(){
+        for(service in services){
+            serviceViewModel.createService(
+                service
+            )
+        }
+    }
     private fun deleteService(text:String){
         services = services.filter { !it.name.equals(text) }.toMutableList()
         binding.prueba.text= services.toString()
@@ -35,16 +46,11 @@ class InsertServiceFragment : Fragment() {
     private fun addChip(text: String){
         val chip = Chip(this.context)
         chip.text = text
-
         chip.isCloseIconVisible = true
-
-
         chip.setOnCloseIconClickListener{
             deleteService(chip.text.toString())
             chipGroup.removeView(chip)
-
         }
-
         chipGroup.addView(chip)
     }
     override fun onCreateView(
@@ -54,12 +60,41 @@ class InsertServiceFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding=  FragmentInsertServiceBinding.inflate(inflater,container, false)
 
+        // ServiceViewModelFactory
+        serviceViewModel =
+            ViewModelProvider(this, ServiceViewModelFactory())[ServiceViewModel::class.java]
+
         binding.btnServiceReturn.setOnClickListener { Navigation.findNavController(binding.root).navigate(
             R.id.action_insertServiceFragment_to_insertClientFragment
         ) }
 
-        binding.btnServiceEnd.setOnClickListener { Navigation.findNavController(binding.root).navigate(
-            R.id.action_insertServiceFragment_to_mainFragment
+        serviceViewModel.state.observe(viewLifecycleOwner){ state ->
+            with(binding.root){
+                when(state){
+                    StateService.Loading -> {
+                        // TODO: If you need do something in loading
+                    }
+                    // Error and Success are both -classes- so we need to check their type with 'is'
+                    is StateService.Error -> {
+                        // TODO: If you need do something in error
+                    }
+                    is StateService.Success -> {
+                        state.service?.let {
+                            serviceResponse.add(it)
+                        }
+                    }
+                    else -> {
+                        // TODO: Not state loaded
+                    }
+
+                }
+            }
+
+        }
+
+        binding.btnServiceEnd.setOnClickListener {
+
+            Navigation.findNavController(binding.root).navigate(R.id.action_insertServiceFragment_to_mainFragment
         ) }
 
         chipGroup= binding.chipGroup
@@ -76,6 +111,7 @@ class InsertServiceFragment : Fragment() {
             ).show(parentFragmentManager, "dialog")
 
         }
+
         return binding.root
     }
 

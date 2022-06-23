@@ -38,20 +38,8 @@ class VehicleCardAdapter: RecyclerView.Adapter<VehicleCardViewHolder>() {
     override fun getItemCount(): Int = vehicleCards.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun filter(SearchText: String, spinnerFilter: String) {
-        lateinit var newList: MutableList<Vehicle>
-        /*
-        if (spinnerFilter == "Cliente")
-            newList = vehicleCardsOriginal.filter {
-                it.clienteName.replace(
-                    "Cliente: ",
-                    ""
-                ) == SearchText
-            } as MutableList<Vehicle>
-
-         */
-        if (spinnerFilter == "Placa")
-            newList = vehicleCardsOriginal.filter {
+    fun filter(SearchText: String) {
+        val newList: MutableList<Vehicle> = vehicleCardsOriginal.filter {
                 it.plateNumber == SearchText
             } as MutableList<Vehicle>
         vehicleCards.clear()

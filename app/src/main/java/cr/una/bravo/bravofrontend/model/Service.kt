@@ -1,9 +1,9 @@
 package cr.una.bravo.bravofrontend.model
 
 data class Service(
-    var id: Long,
+    var id: Long? = null,
     var name: String,
-    var observations: String?,
+    var observations:String,
     var state: String,
 )
 

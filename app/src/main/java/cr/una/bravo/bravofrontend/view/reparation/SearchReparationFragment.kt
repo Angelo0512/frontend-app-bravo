@@ -43,28 +43,24 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
         binding = FragmentSearchReparationBinding.inflate(inflater, container, false)
         viewReparation = binding.root
 
-        //Retrofit Service
-        val reportService = ReportService.getInstance()
-        val reportRepository = ReportRepository(reportService)
-
         //ViewModelfactory
        /* reparationViewModel =
             ViewModelProvider(this, ReparationViewModelFactory())[ReparationViewModel::class.java]*/
 
         //RecyclerView
-        recyclerView = viewReparation.findViewById(R.id.reparationList)
+        recyclerView = binding.reparationList
         initRecycler()
 
         //Spinner
-        reparationFilter = viewReparation.findViewById(R.id.reparationFilter)
+        reparationFilter = binding.reparationFilter
         initSpinner()
 
         //Search View
-        searcher = viewReparation.findViewById(R.id.reparationSearch)
+        searcher = binding.reparationSearch
         searcher.setOnQueryTextListener(this)
 
         //Return Button
-        viewReparation.findViewById<ImageButton>(R.id.btn_SearchRep_Return).setOnClickListener {
+        binding.btnSearchRepReturn.setOnClickListener{
             Navigation.findNavController(viewReparation)
                 .navigate(R.id.action_searchReparationFragment_to_mainFragment)
         }
@@ -73,9 +69,9 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun initRecycler() {
-        binding.reparationList.setHasFixedSize(true)
-        binding.reparationList.layoutManager = LinearLayoutManager(viewReparation.context)
-        binding.reparationList.adapter = adapter
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(viewReparation.context)
+        recyclerView.adapter = adapter
 
         reparationViewModel.state.observe(viewLifecycleOwner){ state ->
             when (state) {

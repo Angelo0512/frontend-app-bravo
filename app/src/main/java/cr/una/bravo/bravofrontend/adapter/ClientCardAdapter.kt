@@ -34,9 +34,8 @@ class ClientCardAdapter: RecyclerView.Adapter<ClientCardViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun filter(SearchText: String) {
-        lateinit var newList: MutableList<UserBasic>
-        newList = clientCardsOriginal.filter {
-            it.id == SearchText.toLong()
+        val newList: MutableList<UserBasic> = clientCardsOriginal.filter {
+            it.id.toString() == SearchText
         } as MutableList<UserBasic>
 
         clientCards.clear()

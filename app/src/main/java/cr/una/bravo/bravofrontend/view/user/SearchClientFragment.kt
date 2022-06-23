@@ -41,33 +41,30 @@ class SearchClientFragment : Fragment(), SearchView.OnQueryTextListener {
         binding = FragmentSearchClientBinding.inflate(inflater, container, false)
         viewClient = binding.root
 
-        val userService = UserService.getInstance()
-        val userRepository = UserRepository(userService)
-
         //ViewModelFactory
         clientViewModel =
                 ViewModelProvider(this,ClientViewModelFactory())[ClientViewModel::class.java]
         //Recycler
-        recyclerView = viewClient.findViewById(R.id.clientList)
+        recyclerView = binding.clientList
         initRecycler()
 
         //Searcher
-        searcher = viewClient.findViewById(R.id.clientSearch)
+        searcher = binding.clientSearch
         searcher.setOnQueryTextListener(this)
 
         //Return Button
-        viewClient.findViewById<ImageButton>(R.id.btn_SearchClient_Return).setOnClickListener {
+        binding.btnSearchClientReturn.setOnClickListener {
             Navigation.findNavController(viewClient)
                 .navigate(R.id.action_searchClientFragment2_to_mainFragment)
         }
-
+        
         return viewClient
     }
 
     private fun initRecycler() {
-        binding.clientList.setHasFixedSize(true)
-        binding.clientList.layoutManager = LinearLayoutManager(viewClient.context)
-        binding.clientList.adapter = adapter
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(viewClient.context)
+        recyclerView.adapter = adapter
 
         clientViewModel.state.observe(viewLifecycleOwner){ state ->
             when (state) {

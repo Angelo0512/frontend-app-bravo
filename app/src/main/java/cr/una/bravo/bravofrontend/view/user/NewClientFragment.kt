@@ -38,7 +38,7 @@ class NewClientFragment : Fragment() {
         clientViewModel = ViewModelProvider(this, ClientViewModelFactory())[ClientViewModel::class.java]
 
         binding.btnClientSubmitNew.setOnClickListener {
-            var user = clientViewModel.createUser(
+            clientViewModel.createUser(
                 User(
                     id = binding.fieldClientID.text.toString().toLong() ,
                     firstName = binding.fieldClientName.text.toString(),
@@ -51,8 +51,9 @@ class NewClientFragment : Fragment() {
                     createDate = null
                 )
             )
+            findNavController().navigate(R.id.action_insertClientFragment_to_insertServiceFragment)
 
-            findNavController().navigate(R.id.action_insertClientFragment_to_insertServiceFragment) }
+        }
 
         return binding.root
 

@@ -43,24 +43,20 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
         binding = FragmentSearchReparationBinding.inflate(inflater, container, false)
         viewReparation = binding.root
 
-        //Retrofit Service
-        val reportService = ReportService.getInstance()
-        val reportRepository = ReportRepository(reportService)
-
         //ViewModelfactory
        /* reparationViewModel =
             ViewModelProvider(this, ReparationViewModelFactory())[ReparationViewModel::class.java]*/
 
         //RecyclerView
-        recyclerView = binding.reparationList//viewReparation.findViewById(R.id.reparationList)
+        recyclerView = binding.reparationList
         initRecycler()
 
         //Spinner
-        reparationFilter = binding.reparationFilter//viewReparation.findViewById(R.id.reparationFilter)
+        reparationFilter = binding.reparationFilter
         initSpinner()
 
         //Search View
-        searcher = binding.reparationSearch//viewReparation.findViewById(R.id.reparationSearch)
+        searcher = binding.reparationSearch
         searcher.setOnQueryTextListener(this)
 
         //Return Button
@@ -68,10 +64,6 @@ class SearchReparationFragment : Fragment(), SearchView.OnQueryTextListener {
             Navigation.findNavController(viewReparation)
                 .navigate(R.id.action_searchReparationFragment_to_mainFragment)
         }
-        /*viewReparation.findViewById<ImageButton>(R.id.btn_SearchRep_Return).setOnClickListener {
-            Navigation.findNavController(viewReparation)
-                .navigate(R.id.action_searchReparationFragment_to_mainFragment)
-        }*/
 
         return viewReparation
     }

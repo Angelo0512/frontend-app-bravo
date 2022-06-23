@@ -38,15 +38,12 @@ class ServiceDialog(
         )
         spinnerService.adapter = adapterService
 
-
-
-        var name = spinnerService.selectedItem.toString()
-        var service = Service(
-            name = name,
-            observations = binding.etAmount.text.toString(),
-            state = "Pendiente",
-        )
         binding.bAddQuantity.setOnClickListener {
+            val service = Service(
+                name = spinnerService.selectedItem.toString(),
+                observations = binding.etAmount.text.toString(),
+                state = "Pendiente",
+            )
             onSubmitClickListener.invoke(service)
             dismiss()
         }

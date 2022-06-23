@@ -113,5 +113,6 @@
     <string name="ingrese_un_nuevo_servicio">Ingrese un nuevo servicio</string>
     <string name="observaciones">Observaciones</string>
     <string name="agregar">Agregar</string>
+    <string name="observaciones_service">Observaciones</string>
 
 </resources>

@@ -29,6 +29,7 @@ class ServiceDialog(
         val builder = AlertDialog.Builder(requireActivity())
         builder.setView(binding.root)
 
+
         val spinnerService: Spinner = binding.spinnerServices
         val adapterService: ArrayAdapter<String> = ArrayAdapter<String>(
             activity?.applicationContext!!,
@@ -38,11 +39,11 @@ class ServiceDialog(
         spinnerService.adapter = adapterService
 
 
-        var observation = binding.etAmount.text.toString()
+
         var name = spinnerService.selectedItem.toString()
         var service = Service(
             name = name,
-            observations = observation,
+            observations = binding.etAmount.text.toString(),
             state = "Pendiente",
         )
         binding.bAddQuantity.setOnClickListener {

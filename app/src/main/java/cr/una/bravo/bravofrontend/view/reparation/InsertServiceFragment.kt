@@ -12,6 +12,8 @@ import androidx.navigation.Navigation
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.FragmentInsertServiceBinding
 import cr.una.bravo.bravofrontend.databinding.FragmentNewVehicleBinding
+import cr.una.bravo.bravofrontend.model.Service
+import cr.una.bravo.bravofrontend.model.UserBasic
 import cr.una.bravo.bravofrontend.utils.ServiceDialog
 
 /**
@@ -20,6 +22,8 @@ import cr.una.bravo.bravofrontend.utils.ServiceDialog
 class InsertServiceFragment : Fragment() {
     private var _binding: FragmentInsertServiceBinding? = null
     private val binding get() = _binding!!
+    private var services = mutableListOf<Service>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,8 +43,11 @@ class InsertServiceFragment : Fragment() {
         binding.btnServiceAddMore.setOnClickListener{
             ServiceDialog(
                 onSubmitClickListener = { service ->
-                    Toast.makeText(requireContext(), "Usted ingreso: $service", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Usted ingreso: ${service}", Toast.LENGTH_SHORT).show()
+                    services.add(service)
+
                 }
+
             ).show(parentFragmentManager, "dialog")
 
         }

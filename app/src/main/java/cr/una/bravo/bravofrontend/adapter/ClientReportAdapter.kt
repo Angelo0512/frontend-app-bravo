@@ -1,9 +1,11 @@
 package cr.una.bravo.bravofrontend.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cr.una.bravo.bravofrontend.R
 import cr.una.bravo.bravofrontend.databinding.ClientItemBinding
@@ -32,7 +34,10 @@ class ClientReportAdapter : RecyclerView.Adapter<ClientViewHolder>(){
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int) {
         holder.bindClient(user[position])
         holder.clientListItemBinding.root.setOnClickListener {
-            val bundle = bundleOf(USER_ID to user[position].id.toString())
+            //val bundle = bundleOf(USER_ID to user[position].id.toString())
+            val bundle = Bundle()
+            //bundle.putString("vehicle_id", )
+            bundle.putLong("user_id", user[position].id)
             holder.clientListItemBinding.root.findNavController().navigate(
                 R.id.action_insertClientFragment_to_insertServiceFragment, bundle
             )

@@ -113,8 +113,10 @@ class InsertServiceFragment : Fragment() {
 
         }
 
-        //val inputText = arguments?.getString("user_id")
-        //val alertDialog = AlertDialog.Builder(context).setTitle("user_id").setMessage(inputText).show();
+       // val userID = arguments?.getLong("user_id")
+        //val vehicleID = arguments?.getString("user_id")
+        //AlertDialog.Builder(context).setTitle("user_id, vehicle_id").setMessage(userID.toString()+","+vehicleID).show();
+
         return binding.root
     }
 

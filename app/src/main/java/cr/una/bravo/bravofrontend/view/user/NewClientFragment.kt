@@ -1,5 +1,6 @@
 package cr.una.bravo.bravofrontend.view.user
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -52,7 +53,12 @@ class NewClientFragment : Fragment() {
                     createDate = null
                 )
             )
-            val bundle = bundleOf("user_id" to binding.fieldClientID.text.toString())
+
+
+            val bundle = Bundle()
+            //AlertDialog.Builder(context).setTitle("vehicle_id").setMessage(arguments?.getString("vehicle_id")).show();
+            bundle.putString("vehicle_id",arguments?.getString("vehicle_id"))
+            bundle.putLong("user_id",binding.fieldClientID.text.toString().toLong())
             findNavController().navigate(R.id.action_insertClientFragment_to_insertServiceFragment, bundle)
 
         }

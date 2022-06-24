@@ -72,17 +72,19 @@ class NewVehicleFragment : Fragment() {
 
 
     binding.btnVehicleSubmitNew.setOnClickListener {
-       /* vehicleViewModel.createVehicle(
+        val plate = binding.fieldVehiclePlaca.text.toString()
+        vehicleViewModel.createVehicle(
             Vehicle(
-                plateNumber = binding.fieldVehiclePlaca.text.toString() ,
+                plateNumber = plate ,
                 vinNumber = binding.fieldVehicleVIN.text.toString(),
                 brand = binding.fieldVehicleMarca.text.toString(),
                 motorSerial = binding.fieldVehicleSerie.text.toString(),
                 vehicleClass = spinnerTipo.selectedItem.toString(),
                 motorType= spinnerTipoMotor.selectedItem.toString(),
             )
-        )*/
-        var bundle = bundleOf("vehicle_plate" to binding.fieldVehiclePlaca.text.toString())
+        )
+        val bundle = Bundle()
+        bundle.putString("vehicle_id", plate)
         findNavController().navigate(R.id.action_insertVehicle_to_insertClientFragment, bundle) }
 
         return binding.root

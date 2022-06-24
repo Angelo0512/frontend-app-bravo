@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "362074679980",
+    "project_id": "bravo-mov2022",
+    "storage_bucket": "bravo-mov2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362074679980:android:a0d5aa2df369f997450d09",
+        "android_client_info": {
+          "package_name": "cr.una.bravo.bravofrontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362074679980-67sd25fva4l9trf4bhe1okmc84t33c6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUbPj8iWjyg2p1VQZ53qqFhguXg0S-1nY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362074679980-67sd25fva4l9trf4bhe1okmc84t33c6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
